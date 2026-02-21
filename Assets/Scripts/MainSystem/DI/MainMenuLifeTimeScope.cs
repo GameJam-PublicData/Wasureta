@@ -1,9 +1,8 @@
-using System;
 using MainSystem.Scene;
 using VContainer;
 using VContainer.Unity;
 
-namespace MainSystem
+namespace MainSystem.DI
 {
 public class MainMenuLifeTimeScope : LifetimeScope
 {

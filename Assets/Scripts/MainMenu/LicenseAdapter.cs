@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
 using InputSystemActions;
 using SyskenTLib.LicenseMaster;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using VContainer;
-namespace MainSystem
+
+namespace MainMenu
 {
 public class LicenseAdapter : MonoBehaviour
 {

@@ -1,9 +1,7 @@
-using System;
 using Cysharp.Threading.Tasks;
-using InputSystemActions;
 using MainSystem.Scene;
 
-namespace MainSystem 
+namespace MainSystem.CoreFlow 
 {
 public class BootManager
 {
@@ -16,12 +14,9 @@ public class BootManager
     {
         // ゲームに必要な初期化処理
 
-        // InputActionMapを全て有効化
-        /*
-        InputActions inputActions = new();
-        inputActions.Enable();*/
-
+        #if UNITY_EDITOR
         if (isDebug) return;
+        #endif
         
         _sceneLoader.LoadScene(SceneType.MainMenuScene).Forget();
     }

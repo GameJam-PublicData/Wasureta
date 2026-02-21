@@ -1,15 +1,14 @@
-using System;
-using InputSystemActions;
+using MainSystem.CoreFlow;
 using MainSystem.Scene;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using VContainer;
 using VContainer.Unity;
-namespace MainSystem
+
+namespace MainSystem.DI
 {
 public class RootLifeTimeScope : LifetimeScope
 {
-    [SerializeField] bool loadBootSceneOnStart = true;
+    [SerializeField] bool notLoadBootScene = true;
     protected override void Configure(IContainerBuilder builder)
     {
         // builder.Register<interface,class>();
@@ -21,7 +20,7 @@ public class RootLifeTimeScope : LifetimeScope
     void Start()
     {
         var bootManager = Container.Resolve<BootManager>();
-        bootManager.Initialize(loadBootSceneOnStart);
+        bootManager.Initialize(notLoadBootScene);
     }
 }
 }
