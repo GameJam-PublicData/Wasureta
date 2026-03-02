@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LicenseAllRootConfig
   m_EditorClassIdentifier: 
   _licenseAllConfigList:
+  - {fileID: 11400000, guid: 96fd0457263f745658a82bf2c69983c3, type: 2}
   - {fileID: 11400000, guid: 2fd825f26f06b4e839b1eaec27f29484, type: 2}
   - {fileID: 11400000, guid: ed8dbde9db11f48c5aae8f0572796446, type: 2}
   - {fileID: 11400000, guid: 7d17aa176604b497ebf59776f309f3f1, type: 2}
