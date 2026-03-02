@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MainSystem.Item
+namespace StageSystem.Item
 {
 public interface IItem
 {

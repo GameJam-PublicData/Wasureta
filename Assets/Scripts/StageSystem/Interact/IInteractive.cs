@@ -1,4 +1,4 @@
-namespace MainSystem.Interact
+namespace StageSystem.Interact
 {
 public interface IInteractive
 {

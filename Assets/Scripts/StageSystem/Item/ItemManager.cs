@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using MainSystem.StageData;
 using UnityEngine;
 
-namespace MainSystem.Item
+namespace StageSystem.Item
 {
 public interface IItemManager
 {
