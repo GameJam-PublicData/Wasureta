@@ -1,3 +1,4 @@
+using System;
 using InputSystemActions;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,25 +8,66 @@ namespace StageSystem.Player
 public class PlayerMove : MonoBehaviour
 {
     InputActions _inputActions;
-    InputAction _moveValue;
+    
+    InputAction _moveAction;
+    InputAction _lookAciton;
+    GameObject _playerCamera;
+    
     [SerializeField] float speed = 10f;
+    [SerializeField] float lookSpeed = 2f;
+    
+    [Header("カメラの角度の上限と下限")]
+    [SerializeField] float upperLimit = -30f;
+    [SerializeField] float lowerLimit = 60f;
 
     void OnEnable()
     {
         _inputActions = new InputActions();
         _inputActions.Player.Enable();
-        _moveValue = _inputActions.Player.Move;
+        _moveAction = _inputActions.Player.Move;
+        _lookAciton = _inputActions.Player.Look;
         Debug.Log("完了");
+    }
+
+    void Awake()
+    {
+        //子オブジェクトを取得
+        _playerCamera = transform.GetChild(0).gameObject;
+        
+        //マウス関連
+        Cursor.lockState = CursorLockMode.Locked; //マウスカーソルを中央に固定して非表示
     }
 
     void FixedUpdate()
     {
+        //移動
         //値を受け取る
-        Vector3 moveValue = _moveValue.ReadValue<Vector2>();
+        Vector3 moveValue = _moveAction.ReadValue<Vector2>();
         moveValue = new Vector3(moveValue.x, 0, moveValue.y);
         
         //動く
         transform.Translate(moveValue * (speed * Time.fixedDeltaTime));
+    }
+
+    
+    void Update()
+    {
+        // 視点移動（Delta値を使用）
+        Vector2 mouseDelta = _lookAciton.ReadValue<Vector2>();
+    
+        //縦回転
+        _playerCamera.transform.Rotate(-mouseDelta.y * lookSpeed, 0, 0, Space.Self);
+        //角度を-180~180の間に矯正
+        float rotationX = _playerCamera.transform.localEulerAngles.x;
+        if (rotationX > 180f)
+            rotationX -= 360f;
+        //上限値と下限値を設定
+        rotationX = Mathf.Clamp(rotationX, upperLimit, lowerLimit);
+        _playerCamera.transform.localEulerAngles = new Vector3(rotationX, 0, 0);
+
+        //横回転
+        transform.Rotate(0, mouseDelta.x * lookSpeed, 0, Space.World);
+        
     }
 }
 }
