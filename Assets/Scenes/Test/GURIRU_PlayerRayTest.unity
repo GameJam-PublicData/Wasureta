@@ -271,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageSystem.Player.ItemSelecter
   hoverObject: {fileID: 0}
   itemNameUI: {fileID: 1158669559}
-  itemNameText: {fileID: 0}
+  itemNameText: {fileID: 1341922241}
 --- !u!1 &652533879
 GameObject:
   m_ObjectHideFlags: 0

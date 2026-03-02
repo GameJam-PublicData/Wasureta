@@ -5,8 +5,10 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using DG.Tweening;
 using InputSystemActions;
+using MainSystem.Item;
 using TMPro;
 using UnityEngine.InputSystem;
+using VContainer;
 
 namespace StageSystem.Player
 {
@@ -21,6 +23,14 @@ public class ItemSelecter : MonoBehaviour
     Tween _itemNameUITween;
 
     InputActions _inputActions;
+
+    IItemManager _itemManager;
+    
+    [Inject]
+    public void Construct(IItemManager itemManager)
+    {
+        _itemManager = itemManager;
+    }
     
     void OnEnable()
     {
@@ -106,7 +116,12 @@ public class ItemSelecter : MonoBehaviour
 
     void SelectItem(InputAction.CallbackContext context)
     {
-        
+        IItem item = _selectItem.GetComponent<IItem>();
+        if (item != null)
+        { 
+            _itemManager.AddItem(item); 
+            Debug.Log($"ItemSelecter: アイテムを選択しました: {item}");
+        }
     }
 }
 }
