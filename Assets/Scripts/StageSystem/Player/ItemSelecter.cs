@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using DG.Tweening;
 using InputSystemActions;
-using MainSystem.Item;
+using StageSystem.Item;
 using TMPro;
 using UnityEngine.InputSystem;
 using VContainer;
