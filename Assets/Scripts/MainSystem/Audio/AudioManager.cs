@@ -18,9 +18,18 @@ public enum AudioCategory
     Jingle
 }
 
+public interface IAudioManager
+{
+    UniTask PlayBGM(string bgmKey, float fadeTime = 0f);
+    void PlaySE(string seKey, float volume = 1f);
+    void StopBGM(float fadeTime = 0f);
+    void SetVolume(AudioCategory category, float volume);
+    float GetVolume(AudioCategory category);
+}
+
 //3D以外のオーディオ管理を行うマネージャークラス
 //SE、BGM、ボイスなど
-public class AudioManager : MonoBehaviour
+public class AudioManager : MonoBehaviour, IAudioManager
 {
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSO audioSO;
@@ -122,6 +131,11 @@ public class AudioManager : MonoBehaviour
     {
         string paramName = $"{category}Volume";
         audioMixer.SetFloat(paramName, VolumeToDb(volume));
+    }
+    public float GetVolume(AudioCategory category)
+    {
+        string paramName = $"{category}Volume";
+        return audioMixer.GetFloat(paramName, out float volume) ? volume: 0f;
     }
 
 

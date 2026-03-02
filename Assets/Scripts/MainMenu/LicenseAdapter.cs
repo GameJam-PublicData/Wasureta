@@ -50,10 +50,21 @@ public class LicenseAdapter : MonoBehaviour
         _inputActions.UI.Enable();
         _inputActions.UI.Navigate.performed += RequestMoveText;
         licenseText.transform.localPosition = Vector3.zero;
+
+        _inputActions.UI.Click.performed += EndLicenceView;
+        _inputActions.UI.Cancel.started += EndLicenceView;
+        _inputActions.UI.Submit.started += EndLicenceView;
+        _inputActions.Player.Jump.Enable();
+        _inputActions.Player.Jump.started += EndLicenceView;
+        
         
         SetMoveBounds();
     }
     
+    void EndLicenceView(InputAction.CallbackContext context)
+    {
+        gameObject.SetActive(false);
+    }
     
     
     void SetMoveBounds()
@@ -91,6 +102,14 @@ public class LicenseAdapter : MonoBehaviour
     {
         _inputActions.UI.Navigate.performed -= RequestMoveText;
         licenseText.transform.localPosition = new Vector3(0,_upperLimitY,0);
+        
+        _inputActions.UI.Click.performed -= EndLicenceView;
+        _inputActions.UI.Cancel.started -= EndLicenceView;
+        _inputActions.UI.Submit.started -= EndLicenceView;
+        _inputActions.Player.Jump.started -= EndLicenceView;
+        
+        _inputActions.UI.Disable();
+        _inputActions.Player.Jump.Disable();
     }
     
     
