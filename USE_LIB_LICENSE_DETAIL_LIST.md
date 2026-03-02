@@ -1,7 +1,7 @@
 このUnityプロジェクトが利用しているライブラリ一覧(詳細)です。
 
 
-更新日時：2026/02/16_10:30:00
+更新日時：2026/03/02_14:25:30
 
 
 -------
@@ -41,6 +41,68 @@
 MIT License
 
 Copyright (c) 2021 Cysharp, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+```
+
+---------------------------------------
+---------------------------------------
+---------------------------------------
+
+
+-------
+## TextMeshProAnimator
+### メモ１：
+
+```
+
+```
+
+
+
+* 追加日：2026/03/02_14:15:29
+* ライセンス：MIT
+* 料金タイプ：Free
+* ライセンス表記が必要？：True
+* チームメンバーごとにライセンス購入が必要か？：False
+* チームメンバー全員が把握する必要があるライブラリか？：False
+
+
+* バージョン：None
+
+
+* WebURL1：https://github.com/coposuke/TextMeshProAnimator
+* WebURL2：
+* 使用しているライブラリ
+
+
+* カスタム１：
+* カスタム2：
+
+### ライセンス表記内容：
+
+```
+
+The MIT License (MIT)
+
+Copyright (c) 2020 copocopo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

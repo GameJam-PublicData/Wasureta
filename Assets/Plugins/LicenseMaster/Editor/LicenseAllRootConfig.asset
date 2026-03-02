@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _licenseAllConfigList:
   - {fileID: 11400000, guid: 2fd825f26f06b4e839b1eaec27f29484, type: 2}
+  - {fileID: 11400000, guid: ed8dbde9db11f48c5aae8f0572796446, type: 2}
   - {fileID: 11400000, guid: 7d17aa176604b497ebf59776f309f3f1, type: 2}
   - {fileID: 11400000, guid: 5198e092571624c5eafbb39d44f7af5b, type: 2}
   - {fileID: 11400000, guid: 304772590f3f34e11974f7a8af706ddc, type: 2}
