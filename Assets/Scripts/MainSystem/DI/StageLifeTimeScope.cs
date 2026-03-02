@@ -1,7 +1,9 @@
 using Cysharp.Threading.Tasks;
 using MainSystem.Audio;
+using MainSystem.CoreFlow;
 using MainSystem.Item;
 using MainSystem.Scene;
+using MainSystem.StageData;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -14,6 +16,10 @@ public class StageLifeTimeScope : LifetimeScope
     protected override void Configure(IContainerBuilder builder)
     {
         // StageSceneに特化した依存関係の登録をここに追加
+        //StageFlow
+        builder.Register<IStageFlow,StageFlow>(Lifetime.Scoped);
+        
+        //Item
         builder.RegisterComponentInHierarchy<IAudioManager>();
         builder.RegisterInstance(itemSO);
         builder.Register<IItemManager, ItemManager>(Lifetime.Scoped);

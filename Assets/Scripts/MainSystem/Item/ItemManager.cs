@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using MainSystem.StageData;
 using UnityEngine;
 
 namespace MainSystem.Item
