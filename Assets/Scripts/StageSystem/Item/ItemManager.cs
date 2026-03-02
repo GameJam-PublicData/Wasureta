@@ -7,7 +7,7 @@ namespace StageSystem.Item
 public interface IItemManager
 {
     void AddItem(IItem item);
-    (List<IItem> lostItems, List<IItem> otherItems) GetItems();
+    (List<IItem> lostItems, List<IItem> getItems) GetItems();
 }
 
 public class ItemManager : IItemManager
@@ -32,7 +32,7 @@ public class ItemManager : IItemManager
         _itemList.Add(item);
     }
 
-    public (List<IItem> lostItems, List<IItem> otherItems) GetItems()
+    public (List<IItem> lostItems, List<IItem> getItems) GetItems()
     {
         List<IItem> lostItems = new();
         List<IItem> otherItems = new();
