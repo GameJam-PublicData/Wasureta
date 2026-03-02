@@ -13,6 +13,7 @@ public class AudioSettingPanel : MonoBehaviour
     {
         Debug.LogError("AudioSettingPanelにAudioManagerが注入されました");
         _audioManager = audioManager;
+        //a
     }
     
     [SerializeField] Slider masterSlider;
