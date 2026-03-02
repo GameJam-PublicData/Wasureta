@@ -67,6 +67,7 @@ public class StageFlow : IStageFlow
         _stageCTS.Cancel();
         
         _resultManager.SetResult(
+            true,   //todo クリア判定
             _stageSO,
             _stopwatch.Elapsed.TotalSeconds,
             0,   //todo スコア

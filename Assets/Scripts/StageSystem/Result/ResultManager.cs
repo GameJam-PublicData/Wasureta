@@ -11,6 +11,7 @@ namespace StageSystem.Result
 public interface IResultManager
 {
     void SetResult(
+        bool isClear,
         StageSO stageSO,
         double clearTime, 
         int score,
@@ -20,6 +21,7 @@ public interface IResultManager
 public class ResultManager : MonoBehaviour, IResultManager
 {
     [SerializeField] List<GameObject> resultStars = new();
+    [SerializeField] TextMeshProUGUI clearText;
     [SerializeField] TextMeshProUGUI stageTimeText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI getItemsText;
@@ -33,6 +35,7 @@ public class ResultManager : MonoBehaviour, IResultManager
     }
 
     public void SetResult(
+        bool isClear,
         StageSO stageSO,
         double clearTime,
         int score,
@@ -40,9 +43,11 @@ public class ResultManager : MonoBehaviour, IResultManager
     {
         //todo 結果画面にステージデータ、クリアタイム、スコアを渡す
         gameObject.SetActive(true);
-        stageTimeText.text = $"クリアタイム: {clearTime:F2}秒";
-        scoreText.text = $"スコア: {score}";
-        getItemsText.text =$"獲得アイテム:{getItems.Count}/{stageSO.ItemSO.LostItemList.Count}";
+        clearText.text = isClear ? "Clear!" : "Failed";
+        clearText.color = isClear ? Color.green : Color.red;
+        stageTimeText.text = $"ClearTime: {clearTime:F2}";
+        scoreText.text = $"Score: {score}";
+        getItemsText.text =$"GetItems:{getItems.Count}/{stageSO.ItemSO.LostItemList.Count}";
         
         SetStarts();
 
