@@ -1,8 +1,8 @@
-using System;
-using StageSystem.Interact;
-using UnityEngine;
 using DG.Tweening;
+using UnityEngine;
 
+namespace StageSystem.Interact
+{
 public class OpenDrawerAnimation : MonoBehaviour, IInteractive
 {
     [SerializeField] float openTime = 5f;
@@ -13,4 +13,5 @@ public class OpenDrawerAnimation : MonoBehaviour, IInteractive
     {
         transform.DOMove(new Vector3(xDistance, 0 ,zDistance ), openTime);
     }
+}
 }
