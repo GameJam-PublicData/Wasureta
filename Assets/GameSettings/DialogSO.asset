@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a813e36d7534014945f113b988ca301, type: 3}
   m_Name: DialogSO
   m_EditorClassIdentifier: Assembly-CSharp::MainSystem.Dialog.DialogSO
-  Content: Dialog Content\n
-  ViewTime: 0.1
+  Content: Dialog\nContent {\n} hello world
+  CharInterval: 0.1
+  LineEndDelay: 1

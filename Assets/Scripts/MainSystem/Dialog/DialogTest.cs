@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using VContainer;
 
@@ -18,7 +19,8 @@ public class DialogTest : MonoBehaviour
     void Start()
     {
         Debug.Log("DialogTest.Start");
-        _dialogSystem.ShowDialog(dialogSO);
+        var token = this.GetCancellationTokenOnDestroy();
+        _dialogSystem.ShowDialog(dialogSO, token).Forget();
     }
 }
 }
