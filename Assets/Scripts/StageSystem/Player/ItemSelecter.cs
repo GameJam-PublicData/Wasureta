@@ -36,12 +36,12 @@ public class ItemSelector : MonoBehaviour
     {
         _inputActions ??= new InputActions();
         _inputActions.Player.Enable();
-        _inputActions.Player.Interact.started += SelectItem;
+        _inputActions.Player.Attack.started += SelectItem;
     }
 
     void OnDisable()
     {
-        _inputActions.Player.Interact.started -= SelectItem;
+        _inputActions.Player.Attack.started -= SelectItem;
         _inputActions.Player.Disable();
     }
 
