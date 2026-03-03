@@ -152,6 +152,8 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
+  scopeName: 
+  <Parent>k__BackingField: {fileID: 0}
   _dialogText: {fileID: 840722506}
 --- !u!4 &65908086
 Transform:
