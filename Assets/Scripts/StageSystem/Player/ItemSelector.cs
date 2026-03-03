@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using DG.Tweening;
 using InputSystemActions;
+using StageSystem.Interact;
 using StageSystem.Item;
 using TMPro;
 using UnityEngine.InputSystem;
@@ -14,7 +15,7 @@ namespace StageSystem.Player
 {
 public class ItemSelector : MonoBehaviour
 {
-    GameObject _selectItem;
+    GameObject _selectObj;
     
     [SerializeField] GameObject hoverObject; 
     
@@ -37,14 +38,18 @@ public class ItemSelector : MonoBehaviour
         _inputActions ??= new InputActions();
         _inputActions.Player.Enable();
         _inputActions.Player.Attack.started += SelectItem;
+        _inputActions.Player.Interact.started += Interact;
+        _mask = LayerMask.GetMask("Item", "Interactive");
     }
 
     void OnDisable()
     {
         _inputActions.Player.Attack.started -= SelectItem;
+        _inputActions.Player.Interact.started -= Interact;
         _inputActions.Player.Disable();
     }
 
+    LayerMask _mask;
     void Update()
     {
         //目の前ずっと確認する
@@ -53,25 +58,25 @@ public class ItemSelector : MonoBehaviour
             transform.forward, 
             out var hitInfo, 
             5f, 
-            LayerMask.GetMask("Item")
+            _mask
         );
 
         //選択されているか
         if (hitDetected && hitInfo.collider != null)
         {
-            if (_selectItem == null || _selectItem != hitInfo.collider.gameObject)
+            if (_selectObj == null || _selectObj != hitInfo.collider.gameObject)
             {
                 //選択された時
                 Debug.Log($"ItemSelector: {hitInfo.collider.name}");
-                _selectItem = hitInfo.collider.gameObject;
+                _selectObj = hitInfo.collider.gameObject;
                 ItemSelectHoverStart(hitInfo.collider.gameObject);
             }
         }
-        else if (_selectItem != null)
+        else if (_selectObj != null)
         {
             //離された時
             Debug.Log("ItemSelector: アイテムから離れました");
-            _selectItem = null;
+            _selectObj = null;
             ItemSelectHoverEnd();
         }
         
@@ -118,11 +123,22 @@ public class ItemSelector : MonoBehaviour
     void SelectItem(InputAction.CallbackContext context)
     {
         Debug.Log("ItemSelector: アイテムを選択しようとしました");
-        IItem item = _selectItem.GetComponent<IItem>();
+        IItem item = _selectObj.GetComponent<IItem>();
         if (item != null)
         { 
             _itemManager.AddItem(item); 
             Debug.Log($"ItemSelector: アイテムを選択しました: {item}");
+        }
+    }
+
+    void Interact(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("ItemSelector: アイテムとインタラクトしようとしました");
+        IInteractive interactive = _selectObj.GetComponent<IInteractive>();
+        if (interactive != null)
+        {
+            interactive.Interact();
+            Debug.Log($"ItemSelector: アイテムとインタラクトしました: {interactive}");
         }
     }
 }
