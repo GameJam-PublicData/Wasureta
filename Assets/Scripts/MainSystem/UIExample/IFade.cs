@@ -1,4 +1,4 @@
-using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine.UI;
 
 namespace MainSystem.UIExample
@@ -6,6 +6,6 @@ namespace MainSystem.UIExample
 public interface IFade
 {
     void Init(Image fadeImage);
-    void FadeIn(float duration, Action callback);
+    UniTask FadeIn(float duration);
 }
 }
