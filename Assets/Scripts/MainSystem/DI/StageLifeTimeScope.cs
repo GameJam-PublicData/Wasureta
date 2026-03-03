@@ -1,9 +1,10 @@
 using Cysharp.Threading.Tasks;
 using MainSystem.Audio;
 using MainSystem.CoreFlow;
-using MainSystem.Item;
 using MainSystem.Scene;
 using MainSystem.StageData;
+using StageSystem.Item;
+using StageSystem.Result;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -24,6 +25,8 @@ public class StageLifeTimeScope : LifetimeScope
         builder.RegisterInstance(itemSO);
         builder.Register<IItemManager, ItemManager>(Lifetime.Scoped);
         
+        //result
+        builder.RegisterComponentInHierarchy<ResultManager>();
     }
 
     void Start()
@@ -34,7 +37,6 @@ public class StageLifeTimeScope : LifetimeScope
     // StageSceneの初期化処理をここに追加
     async UniTask SceneInitialization()
     {
-       
         var pub = Container.Resolve<ISceneInitializationPublisher>();
         //ここでStageSceneの初期化処理を行う。例えば、UIのセットアップや、必要なデータのロードなど。
         
