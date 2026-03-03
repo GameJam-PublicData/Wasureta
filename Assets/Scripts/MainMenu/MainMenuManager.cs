@@ -1,6 +1,8 @@
+using MainSystem.Scene;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using VContainer;
 
 namespace MainMenu
 {
@@ -12,6 +14,7 @@ public interface IMainMenuHolder
     GameObject LicensePanel { get; }
     Button AudioSettingButton { get; }
     GameObject AudioSettingPanel { get; }
+    Button StartButton { get; }
 }
 
 public interface IMainMenuManager
@@ -21,17 +24,22 @@ public interface IMainMenuManager
 public class MainMenuManager : IMainMenuManager
 {
     IMainMenuHolder _mainMenuHolder;
-    public MainMenuManager(IMainMenuHolder mainMenuHolder)
+    ISceneLoader _sceneLoader;
+    
+    public MainMenuManager(
+        IMainMenuHolder mainMenuHolder
+        ,ISceneLoader sceneLoader)
     {
         _mainMenuHolder = mainMenuHolder;
-        
+        _sceneLoader = sceneLoader;
     }
-
+    
     public void Initialize()
     {
         _mainMenuHolder.GameEndButton.onClick.AddListener(OnGameEndButtonClicked);
         _mainMenuHolder.LicenseButton.onClick.AddListener(OnLicenseButtonClicked);
         _mainMenuHolder.AudioSettingButton.onClick.AddListener(OnAudioSettingButtonClicked);
+        _mainMenuHolder.StartButton.onClick.AddListener(OnStartButtonClicked);
     }
     
     void OnGameEndButtonClicked()
@@ -51,6 +59,11 @@ public class MainMenuManager : IMainMenuManager
     void OnAudioSettingButtonClicked()
     {
         _mainMenuHolder.AudioSettingPanel.SetActive(true);
+    }
+    
+    void OnStartButtonClicked()
+    {
+        _sceneLoader.LoadScene(SceneType.StageScene);
     }
 }
 }
