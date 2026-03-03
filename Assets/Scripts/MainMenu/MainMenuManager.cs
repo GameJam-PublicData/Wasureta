@@ -1,4 +1,7 @@
+using Cysharp.Threading.Tasks;
+using MainSystem.CoreFlow;
 using MainSystem.Scene;
+using MainSystem.StageData;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,10 +28,13 @@ public class MainMenuManager : IMainMenuManager
 {
     IMainMenuHolder _mainMenuHolder;
     ISceneLoader _sceneLoader;
+    IStageSelectManager _stageSelectManager;
+    
     
     public MainMenuManager(
         IMainMenuHolder mainMenuHolder
-        ,ISceneLoader sceneLoader)
+        ,ISceneLoader sceneLoader,
+        IStageSelectManager stageSelectManager)
     {
         _mainMenuHolder = mainMenuHolder;
         _sceneLoader = sceneLoader;
@@ -63,7 +69,8 @@ public class MainMenuManager : IMainMenuManager
     
     void OnStartButtonClicked()
     {
-        _sceneLoader.LoadScene(SceneType.StageScene);
+        _stageSelectManager.SelectStage(0);
+        _sceneLoader.LoadScene(SceneType.StageScene).Forget();
     }
 }
 }
