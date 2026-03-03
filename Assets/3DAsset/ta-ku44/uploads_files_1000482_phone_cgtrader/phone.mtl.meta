@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 32a5116d150dabb4bb8bb3ee40ae4eaa
+guid: 6b1c580fb422049a1bbe2d1ca55210c2
 DefaultImporter:
   externalObjects: {}
   userData: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 260522
   packageName: Furniture FREE - Low Poly 3D Models Pack
   packageVersion: 2.1
-  assetPath: Assets/3DAsset/Items/Furniture_FREE/Render_Pipeline_Convert/Unity_6_HDRP_source.unitypackage
+  assetPath: Assets/3DAsset/Items/Furniture_FREE/Render_Pipeline_Convert/Unity_6_Built-In_source.unitypackage
   uploadId: 770921
