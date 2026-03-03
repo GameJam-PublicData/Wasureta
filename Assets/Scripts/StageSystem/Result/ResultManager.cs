@@ -27,12 +27,7 @@ public class ResultManager : MonoBehaviour, IResultManager
     [SerializeField] TextMeshProUGUI getItemsText;
     //[SerializeField] Transform getItemsParent;
     //[SerializeField] GameObject getItemPrefab;
-
-
-    void Awake()
-    {
-        gameObject.SetActive(false);
-    }
+    
 
     public void SetResult(
         bool isClear,
