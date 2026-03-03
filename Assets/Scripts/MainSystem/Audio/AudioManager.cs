@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour, IAudioManager
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSO audioSO;
     
+    
     AudioSource _bgmSource;
     List<AudioSource> _seSources = new();
     
@@ -129,12 +130,18 @@ public class AudioManager : MonoBehaviour, IAudioManager
 
     public void SetVolume(AudioCategory category, float volume)
     {
-        string paramName = $"{category}Volume";
-        audioMixer.SetFloat(paramName, VolumeToDb(volume));
+        string paramName = $"{category.ToString()}Volume";
+        Debug.Log("SetVolume: " + paramName + " to " + volume);
+        bool Sucses = audioMixer.SetFloat(paramName, volume);
+        if (Sucses == false)
+        {
+            Debug.Log("不成功");
+        }
     }
     public float GetVolume(AudioCategory category)
     {
-        string paramName = $"{category}Volume";
+        string paramName = $"{category.ToString()}Volume";
+
         return audioMixer.GetFloat(paramName, out float volume) ? volume: 0f;
     }
 
