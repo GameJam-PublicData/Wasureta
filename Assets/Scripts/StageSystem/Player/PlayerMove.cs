@@ -69,5 +69,10 @@ public class PlayerMove : MonoBehaviour
         transform.Rotate(0, mouseDelta.x * lookSpeed, 0, Space.World);
         
     }
+
+    void OnDisable()
+    {
+        _inputActions.Player.Disable();
+    }
 }
 }
