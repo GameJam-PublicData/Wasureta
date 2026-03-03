@@ -1,4 +1,3 @@
-using System;
 using MainSystem.Dialog;
 using TMPro;
 using UnityEngine;
