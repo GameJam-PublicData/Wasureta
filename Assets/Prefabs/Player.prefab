@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6686537635202414458}
   - component: {fileID: 3924142911358452837}
-  - component: {fileID: 5871131742462980228}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -46,25 +45,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd337af1a429a41d1816c444bb3a34e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageSystem.Player.PlayerMove
-  speed: 10
-  lookSpeed: 2
+  speed: 5
+  lookSpeed: 1
   upperLimit: -30
   lowerLimit: 60
---- !u!114 &5871131742462980228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687508032678313578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e615d364e23e465dab0d500397a37bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StageSystem.Player.ItemSelecter
-  hoverObject: {fileID: 0}
-  itemNameUI: {fileID: 0}
-  itemNameText: {fileID: 0}
 --- !u!1 &1096114037033992199
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +58,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4637081049371652794}
+  - component: {fileID: 1085920544600433660}
   - component: {fileID: 6384145975941305052}
   - component: {fileID: 6032014447190087168}
   - component: {fileID: 6058567331112324303}
@@ -93,12 +78,27 @@ Transform:
   m_GameObject: {fileID: 1096114037033992199}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.61, y: 1, z: -7.65}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6686537635202414458}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1085920544600433660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096114037033992199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e615d364e23e465dab0d500397a37bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StageSystem.Player.ItemSelecter
+  hoverObject: {fileID: 0}
+  itemNameUI: {fileID: 0}
+  itemNameText: {fileID: 0}
 --- !u!20 &6384145975941305052
 Camera:
   m_ObjectHideFlags: 0

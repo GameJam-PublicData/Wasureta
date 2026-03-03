@@ -14,8 +14,6 @@ namespace MainSystem.DI
 {
 public class StageLifeTimeScope : LifetimeScope
 {
-    [SerializeField] StageSO stageSO;
-    
     protected override void Configure(IContainerBuilder builder)
     {
         // StageSceneに特化した依存関係の登録をここに追加
@@ -25,8 +23,6 @@ public class StageLifeTimeScope : LifetimeScope
         
         //Item
         builder.RegisterComponentInHierarchy<IAudioManager>();
-        builder.RegisterInstance(stageSO);
-        builder.RegisterInstance(stageSO.ItemSO);
         
         builder.Register<IItemManager, ItemManager>(Lifetime.Scoped);
         
