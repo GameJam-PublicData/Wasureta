@@ -11,14 +11,16 @@ public interface ITimeManager
     void StopTimer();
     void ReStartTimer();
     double GetElapsedTime();
-    
+    double GetRemainingTime();
     
 }
 public class TimeManager : ITimeManager
 {
     Stopwatch _stopwatch = new();
+    float _timeLimit;
     public async UniTask StartTimer(float timeLimit, CancellationToken token)
     {
+        _timeLimit = timeLimit;
         _stopwatch.Start();
         while (token.IsCancellationRequested == false)
         {
@@ -51,6 +53,11 @@ public class TimeManager : ITimeManager
     public double GetElapsedTime()
     {
         return (float)_stopwatch.Elapsed.TotalMilliseconds;
+    }
+
+    public double GetRemainingTime()
+    {
+        return Math.Max(0, _timeLimit - _stopwatch.Elapsed.TotalSeconds);
     }
 }
 }
