@@ -6,6 +6,9 @@ namespace MainSystem.StageData
 [CreateAssetMenu(menuName = "ScriptableObject/StageData")]
 public class StageSO : ScriptableObject
 {
+    [SerializeField] string title;
+    public string Title => title;
+    
     //ステージデータ全てを管轄するクラス
     [SerializeField] float stageTimeLimit;//ステージの制限時間
     public float StageTimeLimit => stageTimeLimit;
