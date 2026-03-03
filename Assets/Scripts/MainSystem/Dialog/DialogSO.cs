@@ -6,6 +6,7 @@ namespace MainSystem.Dialog
 public class DialogSO : ScriptableObject
 {
     public string Content = "Dialog Content";
-    public float ViewTime = 0.1f;
+    public float CharInterval = 0.1f;
+    public float LineEndDelay = 1f;
 }
 }
