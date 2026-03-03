@@ -11,6 +11,7 @@ public class MainMenuHolder : MonoBehaviour,IMainMenuHolder
     [SerializeField] GameObject licensePanel;
     [SerializeField] Button audioSettingButton;
     [SerializeField] GameObject audioSettingPanel;
+    [SerializeField] Button startButton;
 
 
     public Button GameEndButton => gameEndButton;
@@ -18,5 +19,6 @@ public class MainMenuHolder : MonoBehaviour,IMainMenuHolder
     public GameObject LicensePanel => licensePanel;
     public Button AudioSettingButton => audioSettingButton;
     public GameObject AudioSettingPanel => audioSettingPanel;
+    public Button StartButton => startButton;
 }
 }

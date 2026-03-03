@@ -12,7 +12,7 @@ using VContainer;
 
 namespace StageSystem.Player
 {
-public class ItemSelecter : MonoBehaviour
+public class ItemSelector : MonoBehaviour
 {
     GameObject _selectItem;
     
@@ -36,12 +36,13 @@ public class ItemSelecter : MonoBehaviour
     {
         _inputActions ??= new InputActions();
         _inputActions.Player.Enable();
-        _inputActions.Player.Interact.performed += SelectItem;
+        _inputActions.Player.Interact.started += SelectItem;
     }
 
     void OnDisable()
     {
-        _inputActions.Player.Interact.performed -= SelectItem;
+        _inputActions.Player.Interact.started -= SelectItem;
+        _inputActions.Player.Disable();
     }
 
     void Update()
@@ -61,7 +62,7 @@ public class ItemSelecter : MonoBehaviour
             if (_selectItem == null || _selectItem != hitInfo.collider.gameObject)
             {
                 //選択された時
-                Debug.Log($"ItemSelecter: {hitInfo.collider.name}");
+                Debug.Log($"ItemSelector: {hitInfo.collider.name}");
                 _selectItem = hitInfo.collider.gameObject;
                 ItemSelectHoverStart(hitInfo.collider.gameObject);
             }
@@ -69,7 +70,7 @@ public class ItemSelecter : MonoBehaviour
         else if (_selectItem != null)
         {
             //離された時
-            Debug.Log("ItemSelecter: アイテムから離れました");
+            Debug.Log("ItemSelector: アイテムから離れました");
             _selectItem = null;
             ItemSelectHoverEnd();
         }
@@ -85,7 +86,7 @@ public class ItemSelecter : MonoBehaviour
             hoverObject.SetActive(true);
         }
         
-        //itemnameUIを上からアニメーションだす
+        //itemNameUIを上からアニメーションだす
         if (_itemNameUITween != null)
         {
             _itemNameUITween.Kill();
@@ -104,7 +105,7 @@ public class ItemSelecter : MonoBehaviour
             hoverObject.SetActive(false);
         }
         
-        //itemnameUIを上に戻す
+        //itemNameUIを上に戻す
         if (_itemNameUITween != null)
         {
             _itemNameUITween.Kill();
@@ -116,11 +117,12 @@ public class ItemSelecter : MonoBehaviour
 
     void SelectItem(InputAction.CallbackContext context)
     {
+        Debug.Log("ItemSelector: アイテムを選択しようとしました");
         IItem item = _selectItem.GetComponent<IItem>();
         if (item != null)
         { 
             _itemManager.AddItem(item); 
-            Debug.Log($"ItemSelecter: アイテムを選択しました: {item}");
+            Debug.Log($"ItemSelector: アイテムを選択しました: {item}");
         }
     }
 }
