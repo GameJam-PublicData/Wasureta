@@ -1,5 +1,7 @@
 using MainSystem.Audio;
+using MainSystem.CoreFlow;
 using MainSystem.Scene;
+using MainSystem.StageData;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,15 +29,19 @@ public class MainMenuManager : IMainMenuManager
     IMainMenuHolder _mainMenuHolder;
     ISceneLoader _sceneLoader;
     IAudioManager _audioManager;
+    IStageSelectManager _stageSelectManager;
+    
     
     public MainMenuManager(
         IMainMenuHolder mainMenuHolder,
         ISceneLoader sceneLoader,
-        IAudioManager audioManager)
+        IAudioManager audioManager,
+        IStageSelectManager stageSelectManager)
     {
         _mainMenuHolder = mainMenuHolder;
         _sceneLoader = sceneLoader;
         _audioManager = audioManager;
+        _stageSelectManager = stageSelectManager;
     }
     
     public void Initialize()
@@ -72,7 +78,8 @@ public class MainMenuManager : IMainMenuManager
     void OnStartButtonClicked()
     {
         _audioManager.PlaySE("ButtonPush");
-        _sceneLoader.LoadScene(SceneType.StageScene);
+        _stageSelectManager.SelectStage(0);
+        _sceneLoader.LoadScene(SceneType.StageScene).Forget();
     }
 }
 }

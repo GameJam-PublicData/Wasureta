@@ -26,9 +26,9 @@ public class StageFlow : IStageFlow
     
     CancellationTokenSource _stageCTS;
 
-    public StageFlow(StageSO stageSO,IResultManager resultManager,IItemManager itemManager,ITimeManager timeManager)
+    public StageFlow(IStageSOProvider provider,IResultManager resultManager,IItemManager itemManager,ITimeManager timeManager)
     {
-        _stageSO = stageSO;
+        _stageSO = provider.Get;
         _resultManager = resultManager;
         _itemManager = itemManager;
         _timeManager = timeManager;
@@ -42,6 +42,8 @@ public class StageFlow : IStageFlow
         _stageCTS = new CancellationTokenSource();
         Flow().Forget();
     }
+    
+    
 
 
     async UniTask Flow()

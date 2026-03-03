@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010f0f4ecd1f40acabf4cca61b8bf050, type: 3}
   m_Name: Stage1SO
   m_EditorClassIdentifier: Assembly-CSharp::MainSystem.StageData.StageSO
-  stageTimeLimit: 100
+  stageTimeLimit: 50
   itemSO: {fileID: 11400000, guid: 2622eee32edf446f3a47a01fb18ca4a4, type: 2}
