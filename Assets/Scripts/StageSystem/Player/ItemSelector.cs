@@ -122,24 +122,37 @@ public class ItemSelector : MonoBehaviour
 
     void SelectItem(InputAction.CallbackContext context)
     {
-        Debug.Log("ItemSelector: アイテムを選択しようとしました");
-        IItem item = _selectObj.GetComponent<IItem>();
-        if (item != null)
-        { 
-            _itemManager.AddItem(item); 
-            Debug.Log($"ItemSelector: アイテムを選択しました: {item}");
+        if(_selectObj == null)
+        {
+            Debug.Log("ItemSelector: アイテムを選択しようとしましたが、選択されているアイテムがありません");
+            return;
         }
+        
+        if(_selectObj.TryGetComponent(out IItem item) ==false)
+        {
+            Debug.Log("ItemSelector: アイテムを選択しようとしましたが、プレイヤー自身がアイテムでした");
+            return;
+        }
+        if (item == null) return;
+        _itemManager.AddItem(item); 
+        Debug.Log($"ItemSelector: アイテムを選択しました: {item}");
     }
 
     void Interact(InputAction.CallbackContext ctx)
     {
-        Debug.Log("ItemSelector: アイテムとインタラクトしようとしました");
-        IInteractive interactive = _selectObj.GetComponent<IInteractive>();
-        if (interactive != null)
+        if(_selectObj == null)
         {
-            interactive.Interact();
-            Debug.Log($"ItemSelector: アイテムとインタラクトしました: {interactive}");
+            Debug.Log("ItemSelector: インタラクトしようとしましたが、選択されているオブジェクトがありません");
+            return;
         }
+        if (_selectObj.TryGetComponent(out IInteractive interactive) ==false)
+        {
+            Debug.Log("ItemSelector: インタラクトしようとしましたが、プレイヤー自身がインタラクトでした");
+            return;
+        }
+        if (interactive == null) return;
+        interactive.Interact();
+        Debug.Log($"ItemSelector: アイテムとインタラクトしました: {interactive}");
     }
 }
 }
