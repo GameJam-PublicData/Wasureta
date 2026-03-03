@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58baadcd5ef048ec92057f662d3e4c77, type: 3}
   m_Name: Stage1Items
   m_EditorClassIdentifier: Assembly-CSharp::MainSystem.StageData.ItemSO
-  itemList: []
+  itemRootPrefab: {fileID: 2484559978800051977, guid: 7d327d786dcbd435bae27b14615fcd59, type: 3}
+  itemList:
+  - {fileID: 0}
+  - {fileID: 7892261348493592684, guid: 7d327d786dcbd435bae27b14615fcd59, type: 3}
