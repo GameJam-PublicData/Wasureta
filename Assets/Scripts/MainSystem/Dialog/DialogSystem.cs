@@ -21,8 +21,7 @@ public class DialogSystem : IDialogSystem
     ISceneLoader _sceneLoader;
     StageSO _stageSO;
     
-    [Inject]
-    public void Construct([Key("DialogText")]TextMeshProUGUI dialogText, ISceneLoader sceneLoader, IStageSOProvider stageSOProvider)
+    public DialogSystem([Key("DialogText")]TextMeshProUGUI dialogText, ISceneLoader sceneLoader, IStageSOProvider stageSOProvider)
     {
         Debug.Log("DialogSystem Construct");
         _dialogText = dialogText;
