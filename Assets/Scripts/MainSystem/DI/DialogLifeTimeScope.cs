@@ -1,6 +1,6 @@
-using Cysharp.Threading.Tasks;
+using MainSystem.CoreFlow;
 using MainSystem.Dialog;
-using TMPro;
+using MainSystem.UIExample;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -9,16 +9,18 @@ namespace MainSystem.DI
 {
 public class DialogLifeTimeScope : LifetimeScope
 {
-    [SerializeField] TextMeshProUGUI dialogText;
+    [SerializeField] DialogView dialogView;
+    
     protected override void Configure(IContainerBuilder builder)
     {
-        builder.Register<IDialogSystem, DialogSystem>(Lifetime.Scoped);
-        builder.RegisterInstance(dialogText).Keyed("DialogText");
+        builder.RegisterComponent(dialogView);
+        builder.RegisterEntryPoint<DialogSystem>();
+        builder.Register<IFade, Fade>(Lifetime.Scoped);
     }
     
     void Start()
     {
-        Container.Resolve<IDialogSystem>().ProcessDialogueSceneFlow().Forget();
+        Container.Resolve<IStageSelectManager>().SelectStage(0);
     }
 }
 }
