@@ -2051,11 +2051,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1072421858601642159}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17cfc1062fbda4c1da75eb1fffb48aae, type: 3}
+  m_Script: {fileID: 11500000, guid: 8810cddb1f5c84899aae425bde741d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenTheDoor
-  openTime: 5
-  angle: -90
+  openTime: 1
+  angle: 90
 --- !u!1 &1221793068407362947
 GameObject:
   m_ObjectHideFlags: 0
@@ -9615,11 +9615,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6697036590803730869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17cfc1062fbda4c1da75eb1fffb48aae, type: 3}
+  m_Script: {fileID: 11500000, guid: 8810cddb1f5c84899aae425bde741d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenTheDoor
-  openTime: 5
-  angle: -90
+  openTime: 1
+  angle: 90
 --- !u!1 &6705932286411442311
 GameObject:
   m_ObjectHideFlags: 0
@@ -11982,11 +11982,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8193413539829454691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17cfc1062fbda4c1da75eb1fffb48aae, type: 3}
+  m_Script: {fileID: 11500000, guid: 8810cddb1f5c84899aae425bde741d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenTheDoor
   openTime: 1
-  angle: -90
+  angle: 90
 --- !u!1 &8296434595731136075
 GameObject:
   m_ObjectHideFlags: 0
@@ -12850,11 +12850,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8871400260100914586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17cfc1062fbda4c1da75eb1fffb48aae, type: 3}
+  m_Script: {fileID: 11500000, guid: 8810cddb1f5c84899aae425bde741d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpenTheDoor
-  openTime: 5
-  angle: -90
+  openTime: 1
+  angle: 90
 --- !u!1 &9101353092116121013
 GameObject:
   m_ObjectHideFlags: 0
