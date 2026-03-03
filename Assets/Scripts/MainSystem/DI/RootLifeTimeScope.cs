@@ -15,6 +15,7 @@ public class RootLifeTimeScope : LifetimeScope
         builder.Register<BootManager>(Lifetime.Singleton);
         builder.Register<ISceneLoader,SceneLoader>(Lifetime.Singleton);
         builder.Register<SceneInitializationAwaiter>(Lifetime.Singleton).AsImplementedInterfaces();
+        builder.Register<StageSelectManager>(Lifetime.Singleton).AsImplementedInterfaces();
     }
 
     void Start()
