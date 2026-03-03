@@ -38,6 +38,7 @@ public class MainMenuManager : IMainMenuManager
     {
         _mainMenuHolder = mainMenuHolder;
         _sceneLoader = sceneLoader;
+        _stageSelectManager = stageSelectManager;
     }
     
     public void Initialize()
