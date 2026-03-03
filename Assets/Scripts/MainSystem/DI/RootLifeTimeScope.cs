@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using MainSystem.CoreFlow;
 using MainSystem.Scene;
+using MainSystem.StageData;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -9,6 +11,7 @@ namespace MainSystem.DI
 public class RootLifeTimeScope : LifetimeScope
 {
     [SerializeField] bool notLoadBootScene = true;
+    [SerializeField] List<StageSO> stages;
     protected override void Configure(IContainerBuilder builder)
     {
         // builder.Register<interface,class>();
@@ -16,6 +19,8 @@ public class RootLifeTimeScope : LifetimeScope
         builder.Register<ISceneLoader,SceneLoader>(Lifetime.Singleton);
         builder.Register<SceneInitializationAwaiter>(Lifetime.Singleton).AsImplementedInterfaces();
         builder.Register<StageSelectManager>(Lifetime.Singleton).AsImplementedInterfaces();
+        
+        builder.RegisterInstance(stages).Keyed("AllStages");
     }
 
     void Start()

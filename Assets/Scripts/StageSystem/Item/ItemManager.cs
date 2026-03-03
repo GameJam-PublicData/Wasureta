@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using MainSystem.CoreFlow;
 using MainSystem.StageData;
 using UnityEngine;
 
@@ -14,9 +16,9 @@ public class ItemManager : IItemManager
 {
     ItemSO _itemSO;
 
-    public ItemManager(ItemSO itemSO)
+    public ItemManager(IStageSOProvider stageSOProvider)
     {
-        _itemSO = itemSO;
+        _itemSO = stageSOProvider.Get.ItemSO;
     }
 
     List<IItem> _itemList = new();
