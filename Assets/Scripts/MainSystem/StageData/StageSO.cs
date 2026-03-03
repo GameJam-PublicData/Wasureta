@@ -1,3 +1,4 @@
+using MainSystem.Dialog;
 using UnityEngine;
 
 namespace MainSystem.StageData
@@ -9,11 +10,10 @@ public class StageSO : ScriptableObject
     [SerializeField] float stageTimeLimit;//ステージの制限時間
     public float StageTimeLimit => stageTimeLimit;
     
-    
     [SerializeField]ItemSO itemSO;
     public ItemSO ItemSO => itemSO;
-    
-    
-    //todo 問題文データ
+
+    [SerializeField] DialogSO dialogSO;
+    public DialogSO DialogSO => dialogSO;
 }
 }

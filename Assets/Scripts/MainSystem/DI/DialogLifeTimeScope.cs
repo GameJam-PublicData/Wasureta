@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using MainSystem.Dialog;
 using TMPro;
 using UnityEngine;
@@ -8,16 +9,16 @@ namespace MainSystem.DI
 {
 public class DialogLifeTimeScope : LifetimeScope
 {
-    [SerializeField] TextMeshProUGUI _dialogText;
+    [SerializeField] TextMeshProUGUI dialogText;
     protected override void Configure(IContainerBuilder builder)
     {
         builder.Register<IDialogSystem, DialogSystem>(Lifetime.Scoped);
-        builder.RegisterInstance(_dialogText).Keyed("DialogText");
+        builder.RegisterInstance(dialogText).Keyed("DialogText");
     }
-
+    
     void Start()
     {
-        Container.Resolve<IDialogSystem>().Init();
+        Container.Resolve<IDialogSystem>().ProcessDialogueSceneFlow().Forget();
     }
 }
 }
