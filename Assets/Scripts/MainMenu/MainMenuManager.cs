@@ -1,3 +1,4 @@
+using MainSystem.Audio;
 using MainSystem.Scene;
 using UnityEditor;
 using UnityEngine;
@@ -25,13 +26,16 @@ public class MainMenuManager : IMainMenuManager
 {
     IMainMenuHolder _mainMenuHolder;
     ISceneLoader _sceneLoader;
+    IAudioManager _audioManager;
     
     public MainMenuManager(
-        IMainMenuHolder mainMenuHolder
-        ,ISceneLoader sceneLoader)
+        IMainMenuHolder mainMenuHolder,
+        ISceneLoader sceneLoader,
+        IAudioManager audioManager)
     {
         _mainMenuHolder = mainMenuHolder;
         _sceneLoader = sceneLoader;
+        _audioManager = audioManager;
     }
     
     public void Initialize()
@@ -44,6 +48,8 @@ public class MainMenuManager : IMainMenuManager
     
     void OnGameEndButtonClicked()
     {
+        _audioManager.PlaySE("ButtonPush");
+        
         #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
         return;
@@ -53,16 +59,19 @@ public class MainMenuManager : IMainMenuManager
     
     void OnLicenseButtonClicked()
     {
+        _audioManager.PlaySE("ButtonPush");
         _mainMenuHolder.LicensePanel.SetActive(true);
     }
 
     void OnAudioSettingButtonClicked()
     {
+        _audioManager.PlaySE("ButtonPush");
         _mainMenuHolder.AudioSettingPanel.SetActive(true);
     }
     
     void OnStartButtonClicked()
     {
+        _audioManager.PlaySE("ButtonPush");
         _sceneLoader.LoadScene(SceneType.StageScene);
     }
 }
