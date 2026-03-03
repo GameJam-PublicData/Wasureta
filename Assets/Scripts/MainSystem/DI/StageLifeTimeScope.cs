@@ -5,6 +5,7 @@ using MainSystem.Scene;
 using MainSystem.StageData;
 using StageSystem.Item;
 using StageSystem.Result;
+using StageSystem.Timer;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -19,6 +20,7 @@ public class StageLifeTimeScope : LifetimeScope
         // StageSceneに特化した依存関係の登録をここに追加
         //StageFlow
         builder.Register<IStageFlow,StageFlow>(Lifetime.Scoped);
+        builder.Register<ITimeManager,TimeManager>(Lifetime.Scoped);
         
         //Item
         builder.RegisterComponentInHierarchy<IAudioManager>();
