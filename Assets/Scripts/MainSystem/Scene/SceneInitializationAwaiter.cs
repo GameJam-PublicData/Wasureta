@@ -37,11 +37,21 @@ public class SceneInitializationAwaiter : ISceneInitializationAwaiter, ISceneIni
     public void NotifyInitializationComplete()
     {
         Debug.Log("シーンの初期化が完了しました");
+        if(_tcs == null)
+        {
+            Debug.LogWarning("シーンの初期化が完了しましたが、待機中のタスクがありませんでした。");
+            return;
+        }
         _tcs.TrySetResult();
     }
     
     public void NotifyInitializationFailed(Exception ex)
     {
+        Debug.LogError($"シーンの初期化が失敗しました: {ex.Message}");
+        if(_tcs == null)        {
+            Debug.LogWarning("シーンの初期化が失敗しましたが、待機中のタスクがありませんでした。");
+            return;
+        }
         _tcs.TrySetException(ex);
     }
     

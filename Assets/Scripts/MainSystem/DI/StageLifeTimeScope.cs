@@ -14,7 +14,8 @@ namespace MainSystem.DI
 {
 public class StageLifeTimeScope : LifetimeScope
 {
-    [SerializeField] ItemSO itemSO;
+    [SerializeField] StageSO stageSO;
+    
     protected override void Configure(IContainerBuilder builder)
     {
         // StageSceneに特化した依存関係の登録をここに追加
@@ -24,11 +25,13 @@ public class StageLifeTimeScope : LifetimeScope
         
         //Item
         builder.RegisterComponentInHierarchy<IAudioManager>();
-        builder.RegisterInstance(itemSO);
+        builder.RegisterInstance(stageSO);
+        builder.RegisterInstance(stageSO.ItemSO);
+        
         builder.Register<IItemManager, ItemManager>(Lifetime.Scoped);
         
         //result
-        builder.RegisterComponentInHierarchy<ResultManager>();
+        builder.RegisterComponentInHierarchy<IResultManager>();
     }
 
     void Start()
@@ -42,6 +45,7 @@ public class StageLifeTimeScope : LifetimeScope
         var pub = Container.Resolve<ISceneInitializationPublisher>();
         //ここでStageSceneの初期化処理を行う。例えば、UIのセットアップや、必要なデータのロードなど。
         
+        Container.Resolve<IStageFlow>().StartStage();
         await UniTask.Yield();//ダミー
         
         // 初期化が完了したら、ISceneInitializationPublisherを通じて、初期化が完了したことを通知します。

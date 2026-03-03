@@ -27,7 +27,6 @@ public class TimeManager : ITimeManager
             try
             {
                 await UniTask.Delay(TimeSpan.FromSeconds(timeLimit), cancellationToken: token); 
-                await UniTask.WaitWhile(() => _stopwatch.IsRunning, cancellationToken: token);
             }
             finally
             {
@@ -42,6 +41,7 @@ public class TimeManager : ITimeManager
     public void StopTimer()
     {
         _stopwatch.Stop();
+        Debug.LogError("タイマーは止まりますが、ゲームオーバーの処理は呼び出されません。");
     }
 
     public void ReStartTimer()
