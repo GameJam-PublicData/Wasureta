@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class Fade : IFade
 {
     Image _fadeImage;
-
-    public void Init(Image fadeImage) => _fadeImage = fadeImage;
+    public Fade(DialogView dialogView) => _fadeImage = dialogView.Image;
 
     public async UniTask FadeIn(float duration = 1f)
     {
