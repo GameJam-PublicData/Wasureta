@@ -7,8 +7,6 @@ public class OpenTheDoor : MonoBehaviour ,IInteractive
 {
     [SerializeField] float openTime = 1f;
     [SerializeField] float angle = 90f;
-    IInteractive _interactiveImplementation;
-
    
     public void Interact()
     {
