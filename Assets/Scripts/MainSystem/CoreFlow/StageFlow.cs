@@ -49,13 +49,14 @@ public class StageFlow : IStageFlow
         await UniTask.WhenAll(
             _timeManager.StartTimer(_stageSO.StageTimeLimit,_stageCTS.Token)
         );
-        EndStage();
+        EndStage();//GameOver  クリアは別の処理
     }
 
 
 
     public void EndStage()
     {
+        _timeManager.StopTimer();
         //ステージ終了の処理
         Debug.Log("ステージ終了");
         _stageCTS.Cancel();
