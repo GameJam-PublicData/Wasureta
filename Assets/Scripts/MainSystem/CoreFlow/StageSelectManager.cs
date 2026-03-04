@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MainSystem.StageData;
+using UnityEngine;
 using VContainer;
 
 namespace MainSystem.CoreFlow
@@ -27,6 +28,7 @@ public class StageSelectManager : IStageSelectManager, IStageSOProvider
 
     public void SelectStage(int stageIndex)
     {
+        Debug.LogError($"ステージ{stageIndex}を選択");
         _selectedStageSO = _stages[stageIndex];
     }
 
