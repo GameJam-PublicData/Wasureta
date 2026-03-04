@@ -5,6 +5,7 @@ using MainSystem.StageData;
 using StageSystem.Item;
 using StageSystem.Result;
 using StageSystem.Timer;
+using UnityEngine;
 using Debug = UnityEngine.Debug;
 
 namespace MainSystem.CoreFlow
@@ -49,6 +50,7 @@ public class StageFlow : IStageFlow ,IDisposable
         );
         EndStage();//GameOver  クリアは別の処理
     }
+    public static bool IsGameEnd { get;private set; }
     
     public void EndStage()
     {
@@ -65,6 +67,7 @@ public class StageFlow : IStageFlow ,IDisposable
             0,   //todo スコア
             _itemManager.GetItems().getItems //todo 取得アイテム
         );
+        IsGameEnd = true;
     }
 
 
