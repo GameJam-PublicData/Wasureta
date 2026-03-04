@@ -53,7 +53,9 @@ public class PlayerMove : MonoBehaviour
         moveValue = new Vector3(moveValue.x, 0, moveValue.y);
         
         //動く
-        transform.Translate(moveValue * (speed * Time.fixedDeltaTime));
+        Rigidbody rb = GetComponent<Rigidbody>();
+        Vector3 moveDirection = transform.TransformDirection(moveValue);
+        rb.MovePosition(rb.position + moveDirection * (speed * Time.fixedDeltaTime));
     }
 
     
