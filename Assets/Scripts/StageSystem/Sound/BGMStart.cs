@@ -12,7 +12,6 @@ public class BGMStart : MonoBehaviour
 {
     IAudioManager _audioManager;
     StageSO _stageSO;
-    const string StageBGMName = "BGM_Stage";
     
     [SerializeField] bool isDialogScene;
     
@@ -28,12 +27,12 @@ public class BGMStart : MonoBehaviour
         if (isDialogScene)
         {
             //ダイアログシーンのBGM再生(ステージごとにBGM変化)
-            _audioManager.PlayBGM(_stageSO.BGMName);
+            _audioManager.PlayBGM(_stageSO.DialogBGMName);
         }
         else
         {
             //ステージシーンのBGM再生
-            _audioManager.PlayBGM(StageBGMName);
+            _audioManager.PlayBGM(_stageSO.StageBGMName, _stageSO.StagebgmFadeInTime);
         }
     }
 }
