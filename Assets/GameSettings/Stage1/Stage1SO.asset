@@ -20,3 +20,6 @@ MonoBehaviour:
   bgmFadeInTime: 0
   characterImage: {fileID: 21300000, guid: dbac8eb0fcd654c02b2919109f1f96aa, type: 3}
   backgroundImage: {fileID: 21300000, guid: c1b8c9059d51544599b71932395ca3ce, type: 3}
+  dialogBGMName: Stage1_Dialog
+  stageBGMName: Stage1
+  stagebgmFadeInTime: 0

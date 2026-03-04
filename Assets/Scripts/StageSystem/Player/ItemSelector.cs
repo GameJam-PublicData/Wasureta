@@ -86,6 +86,8 @@ public class ItemSelector : MonoBehaviour
 
     void ItemSelectHoverStart(GameObject selectObject)
     {
+        Debug.Log("アニメーションスタート");
+        
         if (hoverObject != null)
         {
             hoverObject.SetActive(true);
@@ -105,6 +107,8 @@ public class ItemSelector : MonoBehaviour
 
     void ItemSelectHoverEnd()
     {
+        Debug.Log("アニメーションエンド");
+        
         if (hoverObject != null)
         {
             hoverObject.SetActive(false);
