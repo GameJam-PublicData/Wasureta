@@ -37,6 +37,10 @@ public class StageSO : ScriptableObject
     public Sprite CharacterImage => characterImage;
     [SerializeField] Sprite backgroundImage;
     public Sprite BackgroundImage => backgroundImage;
+    [SerializeField] Sprite clearImage;
+    public Sprite ClearImage => clearImage;
+    [SerializeField] Sprite clearCharacterImage;
+    public Sprite ClearCharacterImage => clearCharacterImage;
 
 }
 }

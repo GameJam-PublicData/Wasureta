@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using InputSystemActions;
+using MainSystem.Audio;
 using MainSystem.CoreFlow;
 using MainSystem.Saves;
 using MainSystem.Scene;
@@ -8,6 +9,7 @@ using MainSystem.StageData;
 using StageSystem.Item;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using VContainer;
@@ -35,13 +37,24 @@ public class ResultManager : MonoBehaviour, IResultManager
 
     [SerializeField] GameObject clearImage;
     [SerializeField] GameObject failedImage;
+    
+    [Header("クリア画像")]
+    [SerializeField] Image backgroundImage;
+    [SerializeField] Image characterImage;
+    
+    [Header("ジングル")]
+    [SerializeField] string clearJingleName;
+    [SerializeField] string failedJingleName;
+    
     //[SerializeField] Transform getItemsParent;
     //[SerializeField] GameObject getItemPrefab;
     [Inject] ISceneLoader _sceneLoader;
     [Inject] ISavesManager _savesManager;
     [Inject] IStageSOProvider _stageSOProvider;
+    [Inject] IAudioManager _audioManager;
 
     int _score;
+    
     public void SetResult(
         bool isClear,
         StageSO stageSO,
@@ -55,6 +68,7 @@ public class ResultManager : MonoBehaviour, IResultManager
         
         
         _score = score;
+        
         //クリア画像
         if (isClear)
         {
@@ -67,6 +81,33 @@ public class ResultManager : MonoBehaviour, IResultManager
             failedImage.SetActive(true);
         }
         
+        //ジングル&BGM
+        Debug.Log($"ResultManager AudioManager : {_audioManager}");
+        _audioManager.StopBGM(); // 現在のBGMを即停止
+        if (isClear)
+        {
+            _audioManager.PlayJingle(clearJingleName);
+            _audioManager.PlayBGM(stageSO.DialogBGMName);
+        }
+        else
+        {
+            _audioManager.PlayJingle(failedJingleName);
+            _audioManager.PlayBGM("Failed");
+        }
+        
+        //目的地背景画像
+        backgroundImage.sprite = stageSO.ClearImage;
+        
+        //キャラクター画像
+        if (isClear)
+        {
+            characterImage.sprite = stageSO.ClearCharacterImage;
+        }
+        else
+        {
+            characterImage.sprite = stageSO.CharacterImage;
+        }
+
         var timeLimit = stageSO.StageTimeLimit;
         //クリアタイムがタイムリミットを超えている場合はタイムリミットをクリアタイムとする
         if (clearTime > timeLimit) clearTime = timeLimit;

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using DG.Tweening;
 using InputSystemActions;
+using MainSystem.Audio;
 using StageSystem.Interact;
 using StageSystem.Item;
 using TMPro;
@@ -21,16 +22,22 @@ public class ItemSelector : MonoBehaviour
     
     [SerializeField] RectTransform itemNameUI;
     [SerializeField] TextMeshProUGUI itemNameText;
+    
+    [SerializeField] string getItemSeName;
+    
     Tween _itemNameUITween;
 
     InputActions _inputActions;
 
     IItemManager _itemManager;
     
+    IAudioManager _audioManager;
+    
     [Inject]
-    public void Construct(IItemManager itemManager)
+    public void Construct(IItemManager itemManager, IAudioManager audioManager)
     {
         _itemManager = itemManager;
+        _audioManager = audioManager;
     }
     
     void OnEnable()
@@ -136,6 +143,8 @@ public class ItemSelector : MonoBehaviour
         if (item == null) return;
         HUDReset(false);
         _itemManager.AddItem(item); 
+        
+        _audioManager.PlaySE(getItemSeName);
         Debug.Log($"ItemSelector: アイテムを選択しました: {item}");
     }
 

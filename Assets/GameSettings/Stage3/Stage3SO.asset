@@ -24,3 +24,5 @@ MonoBehaviour:
   bgmFadeInTime: 0
   characterImage: {fileID: 21300000, guid: 5e0a106276245493ab36d6637eb2c606, type: 3}
   backgroundImage: {fileID: 21300000, guid: 4b83b2718a9f846558dc1a171c6aecee, type: 3}
+  clearImage: {fileID: 21300000, guid: 1b13d5be5581f4867883e5e94aa7fb6b, type: 3}
+  clearCharacterImage: {fileID: 21300000, guid: 9b494795caa224cfb978439cc1db0952, type: 3}
