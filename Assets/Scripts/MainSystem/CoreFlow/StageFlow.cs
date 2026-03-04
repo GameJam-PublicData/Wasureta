@@ -74,7 +74,7 @@ public class StageFlow : IStageFlow ,IDisposable
             _itemManager.IsClear(),   //todo クリア判定
             _stageSO,
             _timeManager.GetElapsedTime(),
-            isTimerEnd ? score : 0,
+            isTimerEnd ? 0 : score,
             items.otherItems,
             items.lostItems
         );

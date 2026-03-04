@@ -33,7 +33,7 @@ public class TimeManager : ITimeManager
                 _stopwatch.Stop();
             }
             
-            Debug.Log($"タイマー終了。経過時間: {timeLimit}秒");
+            Debug.Log($"タイマー終了。経過時間: {_stopwatch.Elapsed.TotalSeconds}秒");
             break;
         }
     }
@@ -52,7 +52,7 @@ public class TimeManager : ITimeManager
     
     public double GetElapsedTime()
     {
-        return (float)_stopwatch.Elapsed.TotalMilliseconds;
+        return _stopwatch.Elapsed.TotalSeconds;
     }
 
     public double GetRemainingTime()
