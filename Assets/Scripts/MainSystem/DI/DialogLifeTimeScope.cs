@@ -1,3 +1,4 @@
+using MainSystem.Audio;
 using MainSystem.CoreFlow;
 using MainSystem.Dialog;
 using MainSystem.UIExample;
@@ -16,6 +17,7 @@ public class DialogLifeTimeScope : LifetimeScope
         builder.RegisterComponent(dialogView);
         builder.RegisterEntryPoint<DialogSystem>();
         builder.Register<IFade, Fade>(Lifetime.Scoped);
+        builder.RegisterComponentInHierarchy<IAudioManager>();
     }
     
     void Start()
