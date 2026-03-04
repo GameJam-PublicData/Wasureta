@@ -18,3 +18,5 @@ MonoBehaviour:
   dialogSO: {fileID: 11400000, guid: 6bbbae2f884fd4122bb36b2397d6f3ea, type: 2}
   bgmName: Stage
   bgmFadeInTime: 0
+  characterImage: {fileID: 21300000, guid: dbac8eb0fcd654c02b2919109f1f96aa, type: 3}
+  backgroundImage: {fileID: 21300000, guid: c1b8c9059d51544599b71932395ca3ce, type: 3}

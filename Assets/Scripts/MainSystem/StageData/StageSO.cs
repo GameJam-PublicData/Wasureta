@@ -24,5 +24,12 @@ public class StageSO : ScriptableObject
     public string BGMName => bgmName;
     [SerializeField] float bgmFadeInTime;
     public float BGMFadeInTime => bgmFadeInTime;
+    
+    //画像
+    [SerializeField] Sprite characterImage;
+    public Sprite CharacterImage => characterImage;
+    [SerializeField] Sprite backgroundImage;
+    public Sprite BackgroundImage => backgroundImage;
+
 }
 }
