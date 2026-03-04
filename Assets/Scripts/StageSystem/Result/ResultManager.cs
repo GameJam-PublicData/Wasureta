@@ -16,7 +16,8 @@ public interface IResultManager
         StageSO stageSO,
         double clearTime, 
         int score,
-        List<IItem> getItems);
+        List<IItem> getItems,
+        List<IItem> lostItems);
 }
 
 public class ResultManager : MonoBehaviour, IResultManager
@@ -37,7 +38,8 @@ public class ResultManager : MonoBehaviour, IResultManager
         StageSO stageSO,
         double clearTime,
         int score,
-        List<IItem> getItems)
+        List<IItem> getItems,
+        List<IItem> lostIt)
     {
         //todo 結果画面にステージデータ、クリアタイム、スコアを渡す
         gameObject.SetActive(true);
@@ -56,7 +58,7 @@ public class ResultManager : MonoBehaviour, IResultManager
         
         stageTimeText.text = $"クリア時間 : {clearTime:F2}";
         scoreText.text = $"スコア : {score}";
-        getItemsText.text =$"持ち物 :{getItems.Count}/{stageSO.ItemSO.LostItemList.Count}";
+        getItemsText.text =$"持ち物 :{lostIt.Count}/{stageSO.ItemSO.LostItemList.Count}";
         
         SetStarts();
 
