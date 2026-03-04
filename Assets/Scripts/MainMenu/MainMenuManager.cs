@@ -80,7 +80,7 @@ public class MainMenuManager : IMainMenuManager
     {
         _audioManager.PlaySE("ButtonPush");
         _stageSelectManager.SelectStage(0);
-        _sceneLoader.LoadScene(SceneType.StageScene).Forget();
+        _sceneLoader.LoadScene(SceneType.DialogScene).Forget();
     }
 }
 }
