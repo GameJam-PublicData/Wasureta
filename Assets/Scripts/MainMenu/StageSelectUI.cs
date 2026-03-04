@@ -1,5 +1,6 @@
 using DG.Tweening;
 using MainSystem.Audio;
+using MainSystem.CoreFlow;
 using MainSystem.Scene;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,12 +24,17 @@ public class StageSelectUI : MonoBehaviour
     
     IAudioManager _audioManager;
     ISceneLoader _sceneLoader;
+    IStageSelectManager _stageSelectManager;
 
     [Inject]
-    public void Construct(IAudioManager audioManager, ISceneLoader sceneLoader)
+    public void Construct(
+        IAudioManager audioManager, 
+        ISceneLoader sceneLoader,
+        IStageSelectManager stageSelectManager)
     {
         _audioManager = audioManager;
         _sceneLoader = sceneLoader;
+        _stageSelectManager = stageSelectManager;
     }
     
     
@@ -79,18 +85,24 @@ public class StageSelectUI : MonoBehaviour
     {
         _audioManager.PlaySE("ButtonPush");
         
+        _stageSelectManager.SelectStage(0);
+        _sceneLoader.LoadScene(SceneType.DialogScene);
     }
 
     void StageButton2Clicked()
     {
         _audioManager.PlaySE("ButtonPush");
         
+        _stageSelectManager.SelectStage(1);
+        _sceneLoader.LoadScene(SceneType.DialogScene);
     }
 
     void StageButton3Clicked()
     {
         _audioManager.PlaySE("ButtonPush");
         
+        _stageSelectManager.SelectStage(2);
+        _sceneLoader.LoadScene(SceneType.DialogScene);
     }
 }
 }
