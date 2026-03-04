@@ -5,6 +5,7 @@ namespace StageSystem.Item
 {
 public interface IItem
 {
+    void GotItem();
 }
 public class Item : MonoBehaviour,IItem
 {
@@ -15,6 +16,11 @@ public class Item : MonoBehaviour,IItem
         {
             gameObject.transform.GetChild(i).gameObject.layer = LayerMask.NameToLayer("Item");
         }
+    }
+
+    public void GotItem()
+    {
+        Destroy(gameObject);
     }
 }
 }

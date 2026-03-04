@@ -88,16 +88,7 @@ public class ItemSelector : MonoBehaviour
     {
         Debug.Log("アニメーションスタート");
         
-        if (hoverObject != null)
-        {
-            hoverObject.SetActive(true);
-        }
-        
-        //itemNameUIを上からアニメーションだす
-        if (_itemNameUITween != null)
-        {
-            _itemNameUITween.Kill();
-        }
+        HUDReset(true);
         
         itemNameText.text = selectObject.name;
         
@@ -105,13 +96,11 @@ public class ItemSelector : MonoBehaviour
         _itemNameUITween = itemNameUI.DOAnchorPos(new Vector2(0f,-50f), 0.5f).SetEase(Ease.OutBack);
     }
 
-    void ItemSelectHoverEnd()
+    void HUDReset(bool isHover)
     {
-        Debug.Log("アニメーションエンド");
-        
         if (hoverObject != null)
         {
-            hoverObject.SetActive(false);
+            hoverObject.SetActive(isHover);
         }
         
         //itemNameUIを上に戻す
@@ -119,6 +108,13 @@ public class ItemSelector : MonoBehaviour
         {
             _itemNameUITween.Kill();
         }
+    }
+    
+    void ItemSelectHoverEnd()
+    {
+        Debug.Log("アニメーションエンド");
+        
+        HUDReset(false);
         
         itemNameUI.anchoredPosition = new Vector2(0f, -50f);
         _itemNameUITween = itemNameUI.DOAnchorPos(new Vector2(0f,100f), 0.5f).SetEase(Ease.OutBack);
@@ -138,6 +134,7 @@ public class ItemSelector : MonoBehaviour
             return;
         }
         if (item == null) return;
+        HUDReset(false);
         _itemManager.AddItem(item); 
         Debug.Log($"ItemSelector: アイテムを選択しました: {item}");
     }
@@ -155,6 +152,7 @@ public class ItemSelector : MonoBehaviour
             return;
         }
         if (interactive == null) return;
+        HUDReset(false);
         interactive.Interact();
         Debug.Log($"ItemSelector: アイテムとインタラクトしました: {interactive}");
     }

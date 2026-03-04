@@ -39,6 +39,11 @@ public class PlayerMove : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked; //マウスカーソルを中央に固定して非表示
     }
 
+    void OnDestroy()
+    {
+        Cursor.lockState = CursorLockMode.None; //マウスカーソルのロックを解除して表示
+    }
+
     void FixedUpdate()
     {
         if(StageFlow.IsGameEnd) return;//ゲームが一時停止している場合は処理を行わない
