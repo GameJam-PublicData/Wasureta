@@ -9,6 +9,7 @@ public class StageSO : ScriptableObject
 {
     [SerializeField] string title;
     public string Title => title;
+    public int StageIndex;
     
     //ステージデータ全てを管轄するクラス
     [SerializeField] float stageTimeLimit;//ステージの制限時間
