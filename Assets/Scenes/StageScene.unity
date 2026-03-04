@@ -1468,6 +1468,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1437417321}
   m_SourcePrefab: {fileID: 100100000, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
+--- !u!1 &1571192413 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1096114037033992199, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
+  m_PrefabInstance: {fileID: 6199710439685920625}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &37862194548194668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1520,6 +1525,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8464623108654062062, guid: 50e1ad6875a8b4f0dbee389916e662e0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -6313089241177694167, guid: 8ee5b8ec18f4a1c41b3c9c20412d6670, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1556,7 +1565,7 @@ PrefabInstance:
     - target: {fileID: 946982636704116490, guid: 2f17a81db13474010bcbedc9483fa731, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[1]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6199710439685920626}
     - target: {fileID: 946982636704116490, guid: 2f17a81db13474010bcbedc9483fa731, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[2]'
       value: 
@@ -1564,7 +1573,7 @@ PrefabInstance:
     - target: {fileID: 946982636704116490, guid: 2f17a81db13474010bcbedc9483fa731, type: 3}
       propertyPath: 'autoInjectGameObjects.Array.data[3]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1571192413}
     - target: {fileID: 5988525236691646369, guid: 2f17a81db13474010bcbedc9483fa731, type: 3}
       propertyPath: m_Name
       value: StageLifeTimeScope
