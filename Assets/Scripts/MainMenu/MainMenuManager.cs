@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using MainSystem.Audio;
 using MainSystem.CoreFlow;
 using MainSystem.Scene;
 using MainSystem.StageData;
@@ -28,16 +29,20 @@ public class MainMenuManager : IMainMenuManager
 {
     IMainMenuHolder _mainMenuHolder;
     ISceneLoader _sceneLoader;
+    IAudioManager _audioManager;
     IStageSelectManager _stageSelectManager;
     
     
     public MainMenuManager(
-        IMainMenuHolder mainMenuHolder
-        ,ISceneLoader sceneLoader,
+        IMainMenuHolder mainMenuHolder,
+        ISceneLoader sceneLoader,
+        IAudioManager audioManager,
         IStageSelectManager stageSelectManager)
     {
         _mainMenuHolder = mainMenuHolder;
         _sceneLoader = sceneLoader;
+        _audioManager = audioManager;
+        _stageSelectManager = stageSelectManager;
     }
     
     public void Initialize()
@@ -50,6 +55,8 @@ public class MainMenuManager : IMainMenuManager
     
     void OnGameEndButtonClicked()
     {
+        _audioManager.PlaySE("ButtonPush");
+        
         #if UNITY_EDITOR
         EditorApplication.isPlaying = false;
         return;
@@ -59,16 +66,19 @@ public class MainMenuManager : IMainMenuManager
     
     void OnLicenseButtonClicked()
     {
+        _audioManager.PlaySE("ButtonPush");
         _mainMenuHolder.LicensePanel.SetActive(true);
     }
 
     void OnAudioSettingButtonClicked()
     {
+        _audioManager.PlaySE("ButtonPush");
         _mainMenuHolder.AudioSettingPanel.SetActive(true);
     }
     
     void OnStartButtonClicked()
     {
+        _audioManager.PlaySE("ButtonPush");
         _stageSelectManager.SelectStage(0);
         _sceneLoader.LoadScene(SceneType.StageScene).Forget();
     }

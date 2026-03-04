@@ -48,7 +48,13 @@ AudioMixerController:
   m_SuspendThreshold: -80
   m_EnableSuspend: 1
   m_UpdateMode: 0
-  m_ExposedParameters: []
+  m_ExposedParameters:
+  - guid: 7c33b0496545041f1adc9c85104e2026
+    name: MasterVolume
+  - guid: 3ecd055693b0f4fe48c658e285240262
+    name: SEVolume
+  - guid: cd39d853302fb469a9dfd19a1495c29c
+    name: BGMVolume
   m_AudioMixerGroupViews:
   - guids:
     - 17dcc7fc7e263425e9054722aa7d2511
@@ -101,8 +107,39 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: f2e10b89eb5ec42d2977a15fa44fa89a
-  m_FloatValues: {}
+  m_FloatValues:
+    cd39d853302fb469a9dfd19a1495c29c: -1
+    3ecd055693b0f4fe48c658e285240262: -1
+    7c33b0496545041f1adc9c85104e2026: -1
   m_TransitionOverrides: {}
+--- !u!244 &883394669807532995
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 2db6c3bd8e44c4ecc90fa3fe0db1ca51
+  m_EffectName: Send
+  m_MixLevel: d03f0f4745a194d8f96e75e26d81f147
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!244 &1138796375112372933
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5700056044e82424198d338c2bb950c0
+  m_EffectName: Send
+  m_MixLevel: db2804fce05fd4af6a11367c98058c92
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &7608819662528581084
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
