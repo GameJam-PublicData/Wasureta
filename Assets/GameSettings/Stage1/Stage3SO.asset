@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stage3SO
   m_EditorClassIdentifier: Assembly-CSharp::MainSystem.StageData.StageSO
   title: "\u3069\u304D\u3069\u304D\u30DE\u30A6\u30F3\u30C6\u30F3"
+  StageIndex: 2
   stageTimeLimit: 90
   itemSO: {fileID: 11400000, guid: 2622eee32edf446f3a47a01fb18ca4a4, type: 2}
   dialogSO: {fileID: 11400000, guid: db7e78b8e28a64fc3a823963c33ec438, type: 2}
