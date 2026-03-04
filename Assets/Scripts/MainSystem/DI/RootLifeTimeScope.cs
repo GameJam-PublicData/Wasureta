@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MainSystem.CoreFlow;
+using MainSystem.Saves;
 using MainSystem.Scene;
 using MainSystem.StageData;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class RootLifeTimeScope : LifetimeScope
         builder.Register<ISceneLoader,SceneLoader>(Lifetime.Singleton);
         builder.Register<SceneInitializationAwaiter>(Lifetime.Singleton).AsImplementedInterfaces();
         builder.Register<StageSelectManager>(Lifetime.Singleton).AsImplementedInterfaces();
+        builder.Register<ISavesManager, SaveManager>(Lifetime.Singleton);
         
         builder.RegisterInstance(stages).Keyed("AllStages");
     }

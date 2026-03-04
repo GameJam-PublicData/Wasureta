@@ -28,19 +28,16 @@ public interface IMainMenuManager
 public class MainMenuManager : IMainMenuManager
 {
     IMainMenuHolder _mainMenuHolder;
-    ISceneLoader _sceneLoader;
     IAudioManager _audioManager;
     IStageSelectManager _stageSelectManager;
     
     
     public MainMenuManager(
         IMainMenuHolder mainMenuHolder,
-        ISceneLoader sceneLoader,
         IAudioManager audioManager,
         IStageSelectManager stageSelectManager)
     {
         _mainMenuHolder = mainMenuHolder;
-        _sceneLoader = sceneLoader;
         _audioManager = audioManager;
         _stageSelectManager = stageSelectManager;
     }
@@ -50,7 +47,6 @@ public class MainMenuManager : IMainMenuManager
         _mainMenuHolder.GameEndButton.onClick.AddListener(OnGameEndButtonClicked);
         _mainMenuHolder.LicenseButton.onClick.AddListener(OnLicenseButtonClicked);
         _mainMenuHolder.AudioSettingButton.onClick.AddListener(OnAudioSettingButtonClicked);
-        _mainMenuHolder.StartButton.onClick.AddListener(OnStartButtonClicked);
     }
     
     void OnGameEndButtonClicked()
@@ -76,11 +72,5 @@ public class MainMenuManager : IMainMenuManager
         _mainMenuHolder.AudioSettingPanel.SetActive(true);
     }
     
-    void OnStartButtonClicked()
-    {
-        _audioManager.PlaySE("ButtonPush");
-        _stageSelectManager.SelectStage(0);
-        _sceneLoader.LoadScene(SceneType.DialogScene).Forget();
-    }
 }
 }
