@@ -1,3 +1,4 @@
+using MainSystem.Audio;
 using MainSystem.Dialog;
 using UnityEngine;
 
@@ -18,5 +19,8 @@ public class StageSO : ScriptableObject
 
     [SerializeField] DialogSO dialogSO;
     public DialogSO DialogSO => dialogSO;
+    
+    [SerializeField] SoundData bgm;
+    public SoundData BGM => bgm;
 }
 }

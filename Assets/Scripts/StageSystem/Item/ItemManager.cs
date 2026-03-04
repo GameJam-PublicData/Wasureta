@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using MainSystem.CoreFlow;
@@ -10,6 +11,8 @@ public interface IItemManager
 {
     void AddItem(IItem item);
     (List<IItem> lostItems, List<IItem> getItems) GetItems();
+    bool IsClear();
+    Action<List<IItem>> OnGetItems { get; set; }
 }
 
 public class ItemManager : IItemManager
@@ -32,7 +35,11 @@ public class ItemManager : IItemManager
         }
 
         _itemList.Add(item);
+        OnGetItems.Invoke(_itemList);
     }
+
+    public Action<List<IItem>> OnGetItems { get; set; } = _ => { };
+
 
     public (List<IItem> lostItems, List<IItem> getItems) GetItems()
     {
@@ -43,15 +50,20 @@ public class ItemManager : IItemManager
         {
             if (_itemSO.LostIItemList.Contains(item))
             {
-                lostItems.Add(item);
+                if(!lostItems.Contains(item)) lostItems.Add(item);
             }
             else
             {
                 otherItems.Add(item);
             }
         }
-
         return (lostItems, otherItems);
+    }
+
+    public bool IsClear()
+    {
+        var (lostItems, _) = GetItems();
+        return lostItems.Count == _itemSO.LostIItemList.Count;
     }
 }
 }

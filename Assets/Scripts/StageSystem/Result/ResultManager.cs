@@ -4,6 +4,7 @@ using MainSystem.StageData;
 using StageSystem.Item;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace StageSystem.Result
 {
@@ -21,10 +22,12 @@ public interface IResultManager
 public class ResultManager : MonoBehaviour, IResultManager
 {
     [SerializeField] List<GameObject> resultStars = new();
-    [SerializeField] TextMeshProUGUI clearText;
     [SerializeField] TextMeshProUGUI stageTimeText;
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI getItemsText;
+
+    [SerializeField] GameObject clearImage;
+    [SerializeField] GameObject failedImage;
     //[SerializeField] Transform getItemsParent;
     //[SerializeField] GameObject getItemPrefab;
     
@@ -38,11 +41,22 @@ public class ResultManager : MonoBehaviour, IResultManager
     {
         //todo 結果画面にステージデータ、クリアタイム、スコアを渡す
         gameObject.SetActive(true);
-        clearText.text = isClear ? "Clear!" : "Failed";
-        clearText.color = isClear ? Color.green : Color.red;
-        stageTimeText.text = $"ClearTime: {clearTime:F2}";
-        scoreText.text = $"Score: {score}";
-        getItemsText.text =$"GetItems:{getItems.Count}/{stageSO.ItemSO.LostItemList.Count}";
+        
+        //クリア画像
+        if (isClear)
+        {
+            clearImage.SetActive(true);
+            failedImage.SetActive(false);
+        }
+        else
+        {
+            clearImage.SetActive(false);
+            failedImage.SetActive(true);
+        }
+        
+        stageTimeText.text = $"クリア時間 : {clearTime:F2}";
+        scoreText.text = $"スコア : {score}";
+        getItemsText.text =$"持ち物 :{getItems.Count}/{stageSO.ItemSO.LostItemList.Count}";
         
         SetStarts();
 
