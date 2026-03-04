@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 010f0f4ecd1f40acabf4cca61b8bf050, type: 3}
-  m_Name: Stage1SO
+  m_Name: Stage2SO
   m_EditorClassIdentifier: Assembly-CSharp::MainSystem.StageData.StageSO
-  title: "\u308F\u304F\u308F\u304F\u30D4\u30AF\u30CB\u30C3\u30AF"
+  title: "\u30D1\u30B7\u30E3\u30D1\u30B7\u30E3\u30D3\u30FC\u30C1"
   stageTimeLimit: 90
   itemSO: {fileID: 11400000, guid: 2622eee32edf446f3a47a01fb18ca4a4, type: 2}
-  dialogSO: {fileID: 11400000, guid: 6bbbae2f884fd4122bb36b2397d6f3ea, type: 2}
-  dialogBGMName: Stage1_Dialog
+  dialogSO: {fileID: 11400000, guid: 4ae6dde7ae19b4b7dbba03343bd66c13, type: 2}
+  dialogBGMName: Stage2_Dialog
   stageBGMName: Stage1
   stageBgmFadeInTime: 0
   bgmName: Stage
   bgmFadeInTime: 0
-  characterImage: {fileID: 21300000, guid: dbac8eb0fcd654c02b2919109f1f96aa, type: 3}
-  backgroundImage: {fileID: 21300000, guid: c1b8c9059d51544599b71932395ca3ce, type: 3}
+  characterImage: {fileID: 21300000, guid: 10d8687279c274b4abfffd875cb8742d, type: 3}
+  backgroundImage: {fileID: 21300000, guid: 7053c4c7bc5014c8e89898cca5a4c6b3, type: 3}
