@@ -67,8 +67,15 @@ public class ResultManager : MonoBehaviour, IResultManager
             failedImage.SetActive(true);
         }
         
-        stageTimeText.text = $"クリア時間 : {clearTime:F2}";
-        scoreText.text = $"スコア : {score}";
+        var timeLimit = stageSO.StageTimeLimit;
+        //クリアタイムがタイムリミットを超えている場合はタイムリミットをクリアタイムとする
+        if (clearTime > timeLimit) clearTime = timeLimit;
+        
+        // 9999点満点でスコアを計算
+        int finalScore = CalculateScore(score, clearTime, timeLimit);
+        
+        stageTimeText.text = $"Time : {clearTime:F2}";
+        scoreText.text = $"スコア : {finalScore}";
         getItemsText.text =$"持ち物 :{lostIt.Count}/{stageSO.ItemSO.LostItemList.Count}";
         
         SetStarts(score);
@@ -86,6 +93,18 @@ public class ResultManager : MonoBehaviour, IResultManager
         _inputActions.UI.Enable();
         _inputActions.UI.Submit.started += GoNext;
     }
+    
+    int CalculateScore(int score, double clearTime, double timeLimit)
+    {
+        // アイテムスコアは最大6000点（3点×2000点）
+        int itemScore = score * 2000;
+        
+        // 時間スコアは補助的に（最大3999点）
+        int timeScore = (int)((timeLimit - clearTime) / timeLimit * 3999);
+        timeScore = Mathf.Max(0, timeScore);
+        
+        return Mathf.Clamp(itemScore + timeScore, 0, 9999);
+    }
 
     void SetStarts(int starCount)
     {
@@ -94,7 +113,7 @@ public class ResultManager : MonoBehaviour, IResultManager
             resultStars[i].SetActive(true);
         }
     }
-
+    
     InputActions _inputActions;
 
     void GoNext(InputAction.CallbackContext ctx)
