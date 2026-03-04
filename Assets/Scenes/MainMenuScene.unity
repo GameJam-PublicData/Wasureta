@@ -2469,6 +2469,14 @@ MonoBehaviour:
   stageButton3: {fileID: 558384580}
   NomalHUD: {fileID: 1810104083}
   StageSelectHUD: {fileID: 1140951893}
+  stageNameTexts:
+  - {fileID: 512873550}
+  - {fileID: 193595798}
+  - {fileID: 1741719680}
+  stageSOs:
+  - {fileID: 11400000, guid: 1245f5979968e40e2b57544c0ecb0cce, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1154335632
 PrefabInstance:
   m_ObjectHideFlags: 0

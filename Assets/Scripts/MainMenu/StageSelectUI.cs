@@ -2,6 +2,8 @@ using DG.Tweening;
 using MainSystem.Audio;
 using MainSystem.CoreFlow;
 using MainSystem.Scene;
+using MainSystem.StageData;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
@@ -19,6 +21,11 @@ public class StageSelectUI : MonoBehaviour
 
     [SerializeField] RectTransform NomalHUD;
     [SerializeField] RectTransform StageSelectHUD;
+    
+    [SerializeField] TextMeshProUGUI[] stageNameTexts;
+    [SerializeField] StageSO[] stageSOs;
+    
+    
 
     bool _isAnimation = false;
     
@@ -47,6 +54,19 @@ public class StageSelectUI : MonoBehaviour
         stageButton1.onClick.AddListener(StageButton1Clicked);
         stageButton2.onClick.AddListener(StageButton2Clicked);
         stageButton3.onClick.AddListener(StageButton3Clicked);
+
+        /*
+        for(int i = 0; i < stageNameTexts.Length; i++)
+        {
+            if(i < stageSOs.Length)
+            {
+                stageNameTexts[i].text = stageSOs[i].Title;
+            }
+            else
+            {
+                stageNameTexts[i].text = "？？？";
+            }
+        }*/
     }
 
     void GameStartButtonClicked()
