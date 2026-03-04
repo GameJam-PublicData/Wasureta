@@ -14,6 +14,11 @@ public class StageStar : MonoBehaviour
 
     public void SetStar(int star)
     {
+        if (star == -1)
+        {
+            star = 0;
+        }
+        
         for (int i = 0; i < star; i++)
         {
             stars[i].sprite = onStar;

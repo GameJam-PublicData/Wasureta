@@ -75,22 +75,19 @@ public class StageSelectUI : MonoBehaviour
         }*/
         
         //スコア
+        _savesManager.Initialize(3);
         var scores = _savesManager.GetStageScores();
-        Debug.Log(scores);
-        foreach (var score in scores)
+        for(int i = 0; i < stageStars.Length; i++)
         {
-            Debug.Log($"Stage: {score.Item1}, Score: {score.Item2}");
+            if(i < scores.Count)
+            {
+                stageStars[i].SetStar(scores[i].score);
+            }
+            else
+            {
+                stageStars[i].SetStar(0);
+            }
         }
-        /*for(int i = 0;i < stageSOs.Length; i++)
-        {
-            stageNameTexts[i].text = stageSOs[i].Title;
-            var score = scores.Find(x => x.index == i).score;
-            stageNameTexts[i].text += $"  {score}点";
-        }*/
-
-        stageStars[0].SetStar(0);
-        stageStars[1].SetStar(1);
-        stageStars[2].SetStar(3);
     }
 
     void GameStartButtonClicked()
