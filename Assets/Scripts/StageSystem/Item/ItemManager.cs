@@ -10,7 +10,7 @@ namespace StageSystem.Item
 public interface IItemManager
 {
     void AddItem(IItem item);
-    (List<IItem> lostItems, List<IItem> getItems) GetItems();
+    (List<IItem> lostItems, List<IItem> otherItems) GetItems();
     bool IsClear();
     Action<List<IItem>> OnGetItems { get; set; }
 }
@@ -35,13 +35,14 @@ public class ItemManager : IItemManager
         }
 
         _itemList.Add(item);
+        item.GotItem();
         OnGetItems.Invoke(_itemList);
     }
 
     public Action<List<IItem>> OnGetItems { get; set; } = _ => { };
 
 
-    public (List<IItem> lostItems, List<IItem> getItems) GetItems()
+    public (List<IItem> lostItems, List<IItem> otherItems) GetItems()
     {
         List<IItem> lostItems = new();
         List<IItem> otherItems = new();

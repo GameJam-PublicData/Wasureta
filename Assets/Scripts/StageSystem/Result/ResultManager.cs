@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using InputSystemActions;
+using MainSystem.Scene;
 using MainSystem.StageData;
 using StageSystem.Item;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using VContainer;
 
 namespace StageSystem.Result
 {
@@ -16,7 +20,8 @@ public interface IResultManager
         StageSO stageSO,
         double clearTime, 
         int score,
-        List<IItem> getItems);
+        List<IItem> getItems,
+        List<IItem> lostItems);
 }
 
 public class ResultManager : MonoBehaviour, IResultManager
@@ -30,14 +35,15 @@ public class ResultManager : MonoBehaviour, IResultManager
     [SerializeField] GameObject failedImage;
     //[SerializeField] Transform getItemsParent;
     //[SerializeField] GameObject getItemPrefab;
-    
+    [Inject] ISceneLoader _sceneLoader;
 
     public void SetResult(
         bool isClear,
         StageSO stageSO,
         double clearTime,
         int score,
-        List<IItem> getItems)
+        List<IItem> getItems,
+        List<IItem> lostIt)
     {
         //todo 結果画面にステージデータ、クリアタイム、スコアを渡す
         gameObject.SetActive(true);
@@ -56,9 +62,9 @@ public class ResultManager : MonoBehaviour, IResultManager
         
         stageTimeText.text = $"クリア時間 : {clearTime:F2}";
         scoreText.text = $"スコア : {score}";
-        getItemsText.text =$"持ち物 :{getItems.Count}/{stageSO.ItemSO.LostItemList.Count}";
+        getItemsText.text =$"持ち物 :{lostIt.Count}/{stageSO.ItemSO.LostItemList.Count}";
         
-        SetStarts();
+        SetStarts(score);
 
         /*
          //todo 獲得アイテムの表示処理
@@ -67,16 +73,34 @@ public class ResultManager : MonoBehaviour, IResultManager
             GameObject itemObj = Instantiate(getItemPrefab, getItemsParent);
             itemObj.GetComponent<ItemViewer>().SetItem(item);
         }*/
+        
+        _inputActions = new InputActions();
+        
+        _inputActions.UI.Enable();
+        _inputActions.UI.Submit.started += GoNext;
     }
 
-    void SetStarts()
+    void SetStarts(int starCount)
     {
-        //todo 星の数の計算処理
-        int starCount = 2;
         for (int i = 0; i< starCount; i++)
         {
             resultStars[i].SetActive(true);
         }
+    }
+
+    InputActions _inputActions;
+
+    void GoNext(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("次の画面へ");
+        _sceneLoader.LoadScene(SceneType.MainMenuScene);
+    }
+
+    void OnDisable()
+    {
+        if(_inputActions == null) return;
+        _inputActions.UI.Submit.started -= GoNext;
+        _inputActions.Disable();
     }
 }
 }
