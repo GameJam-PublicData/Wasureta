@@ -23,9 +23,6 @@ public class DialogLifeTimeScope : LifetimeScope
         builder.RegisterComponentInHierarchy<IAudioManager>();
     }
     
-    void Start()
-    {
-        Container.Resolve<IStageSelectManager>().SelectStage(0);
-    }
+
 }
 }
