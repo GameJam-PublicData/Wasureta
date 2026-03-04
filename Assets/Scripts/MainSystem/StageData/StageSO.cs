@@ -20,7 +20,9 @@ public class StageSO : ScriptableObject
     [SerializeField] DialogSO dialogSO;
     public DialogSO DialogSO => dialogSO;
     
-    [SerializeField] SoundData bgm;
-    public SoundData BGM => bgm;
+    [SerializeField] string bgmName;
+    public string BGMName => bgmName;
+    [SerializeField] float bgmFadeInTime;
+    public float BGMFadeInTime => bgmFadeInTime;
 }
 }

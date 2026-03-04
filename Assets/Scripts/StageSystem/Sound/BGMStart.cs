@@ -28,7 +28,7 @@ public class BGMStart : MonoBehaviour
         if (isDialogScene)
         {
             //ダイアログシーンのBGM再生(ステージごとにBGM変化)
-            _audioManager.PlayBGM(_stageSO.BGM.SoundName);
+            _audioManager.PlayBGM(_stageSO.BGMName);
         }
         else
         {

@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/StageScene.unity
     guid: 4db9b3d0f90ca4308a83b17ce7bdcaed
   - enabled: 1
-    path: Assets/Scenes/Test/hizagakuGakuen/ItemCheckTesthizagakuGakuen.unity
-    guid: a908919fd5abb43acb4c5f699f241614
+    path: Assets/Scenes/DialogScene.unity
+    guid: d8c7eaddd28cf4ed885d012a1ab339c0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
