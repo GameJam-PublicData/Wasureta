@@ -20,7 +20,7 @@ public class RootLifeTimeScope : LifetimeScope
         builder.Register<ISceneLoader,SceneLoader>(Lifetime.Singleton);
         builder.Register<SceneInitializationAwaiter>(Lifetime.Singleton).AsImplementedInterfaces();
         builder.Register<StageSelectManager>(Lifetime.Singleton).AsImplementedInterfaces();
-        builder.Register<ISavesManager,SaveManager>(Lifetime.Singleton).AsImplementedInterfaces();
+        builder.Register<ISavesManager, SaveManager>(Lifetime.Singleton);
         
         builder.RegisterInstance(stages).Keyed("AllStages");
     }
