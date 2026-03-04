@@ -1,5 +1,4 @@
 using System;
-using System.Diagnostics;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using MainSystem.StageData;
@@ -17,7 +16,7 @@ public interface IStageFlow
     void EndStage();
 }
 
-public class StageFlow : IStageFlow
+public class StageFlow : IStageFlow ,IDisposable
 {
     StageSO _stageSO;
     IResultManager _resultManager;
@@ -34,18 +33,15 @@ public class StageFlow : IStageFlow
         _timeManager = timeManager;
     }
     
-    
     public void StartStage()
     {
         //ステージ開始の処理
         Debug.Log("ステージ開始");
         _stageCTS = new CancellationTokenSource();
         Flow().Forget();
+        
     }
     
-    
-
-
     async UniTask Flow()
     {
         await UniTask.WhenAll(
@@ -53,18 +49,17 @@ public class StageFlow : IStageFlow
         );
         EndStage();//GameOver  クリアは別の処理
     }
-
-
-
+    
     public void EndStage()
     {
+        
         _timeManager.StopTimer();
         //ステージ終了の処理
         Debug.Log("ステージ終了");
         _stageCTS.Cancel();
         
         _resultManager.SetResult(
-            true,   //todo クリア判定
+            _itemManager.IsClear(),   //todo クリア判定
             _stageSO,
             _timeManager.GetElapsedTime(),
             0,   //todo スコア
@@ -73,5 +68,9 @@ public class StageFlow : IStageFlow
     }
 
 
+    public void Dispose()
+    {
+        _stageCTS?.Dispose();
+    }
 }
 }
