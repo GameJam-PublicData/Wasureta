@@ -15,5 +15,6 @@ public class OpenTheDoor : MonoBehaviour ,IInteractive
         transform.DORotate(new Vector3(0, angle, 0), openTime , RotateMode.LocalAxisAdd);
         _isInteract = true;
     }
+    //俺は磯貝。みんな嫌いだぜ
 }
 }
