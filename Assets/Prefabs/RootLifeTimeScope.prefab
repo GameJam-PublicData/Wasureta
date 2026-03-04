@@ -48,7 +48,7 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  notLoadBootScene: 1
+  notLoadBootScene: 0
   stages:
   - {fileID: 11400000, guid: 1245f5979968e40e2b57544c0ecb0cce, type: 2}
   - {fileID: 11400000, guid: 2d066fda8bb014c298040b7a48a0a6e7, type: 2}

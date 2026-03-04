@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MainSystem.Audio.AudioSO
   _seSounds:
   - {fileID: 11400000, guid: f7bb5da38eedf434ba180b10a724eb23, type: 2}
+  - {fileID: 11400000, guid: 453f22314e8384d3296ca0ed960c120d, type: 2}
   _bgmSounds:
   - {fileID: 11400000, guid: e09775985fa2c4b259f2e230fc2f055e, type: 2}
   - {fileID: 11400000, guid: 4387b3aef62634962b7c3e1ce155810f, type: 2}
   - {fileID: 11400000, guid: 80c1d58b84f4d42ae8879c93fd23ee2a, type: 2}
   - {fileID: 11400000, guid: 251cc17005cc643d68a320a679d6a261, type: 2}
+  - {fileID: 11400000, guid: 71814258e373f4511a45c303a60a37b2, type: 2}
   - {fileID: 11400000, guid: 39a72bbf1ecb0456babe8f45845d93d3, type: 2}
-  _jingleSounds: []
+  _jingleSounds:
+  - {fileID: 11400000, guid: 981e052e1eb00428889befdb96a65818, type: 2}
+  - {fileID: 11400000, guid: 10bdf11e205304f91b84b21238780ec0, type: 2}
