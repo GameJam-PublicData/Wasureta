@@ -36,6 +36,7 @@ public class StageFlow : IStageFlow ,IDisposable
     
     public void StartStage()
     {
+        IsGameEnd = false;
         //ステージ開始の処理
         Debug.Log("ステージ開始");
         _stageCTS = new CancellationTokenSource();
@@ -54,7 +55,6 @@ public class StageFlow : IStageFlow ,IDisposable
     
     public void EndStage(bool isTimerEnd = false)
     {
-        
         _timeManager.StopTimer();
         //ステージ終了の処理
         Debug.Log("ステージ終了");
