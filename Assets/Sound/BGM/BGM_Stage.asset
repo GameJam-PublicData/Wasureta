@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BGM_Stage
   m_EditorClassIdentifier: Assembly-CSharp::MainSystem.Audio.SoundData
   category: 1
-  soundName: BGM_Stage
+  soundName: Stage1
   clip: {fileID: 8300000, guid: e76f5b8ecd72f4787b0494bb53b20f33, type: 3}
   volume: 1
   loop: 0

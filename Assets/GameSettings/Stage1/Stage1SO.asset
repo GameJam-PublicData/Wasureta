@@ -16,5 +16,6 @@ MonoBehaviour:
   stageTimeLimit: 50
   itemSO: {fileID: 11400000, guid: 2622eee32edf446f3a47a01fb18ca4a4, type: 2}
   dialogSO: {fileID: 11400000, guid: 6bbbae2f884fd4122bb36b2397d6f3ea, type: 2}
-  bgmName: Stage
-  bgmFadeInTime: 0
+  dialogBGMName: Stage1_Dialog
+  stageBGMName: Stage1
+  stagebgmFadeInTime: 0
