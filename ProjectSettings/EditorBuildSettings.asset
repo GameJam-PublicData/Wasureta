@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: d4766d94271b9446c88aae6d231b063c
   - enabled: 1
-    path: Assets/Scenes/StageScene.unity
+    path: Assets/Scenes/StageScene1.unity
     guid: 4db9b3d0f90ca4308a83b17ce7bdcaed
   - enabled: 1
     path: Assets/Scenes/Test/hizagakuGakuen/ItemCheckTesthizagakuGakuen.unity
