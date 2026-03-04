@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using InputSystemActions;
+using MainSystem.CoreFlow;
+using MainSystem.Saves;
 using MainSystem.Scene;
 using MainSystem.StageData;
 using StageSystem.Item;
@@ -36,7 +38,10 @@ public class ResultManager : MonoBehaviour, IResultManager
     //[SerializeField] Transform getItemsParent;
     //[SerializeField] GameObject getItemPrefab;
     [Inject] ISceneLoader _sceneLoader;
+    [Inject] ISavesManager _savesManager;
+    [Inject] IStageSOProvider _stageSOProvider;
 
+    int _score;
     public void SetResult(
         bool isClear,
         StageSO stageSO,
@@ -48,6 +53,8 @@ public class ResultManager : MonoBehaviour, IResultManager
         //todo 結果画面にステージデータ、クリアタイム、スコアを渡す
         gameObject.SetActive(true);
         
+        
+        _score = score;
         //クリア画像
         if (isClear)
         {
@@ -93,6 +100,7 @@ public class ResultManager : MonoBehaviour, IResultManager
     void GoNext(InputAction.CallbackContext ctx)
     {
         Debug.Log("次の画面へ");
+        _savesManager.SaveStageScore(_stageSOProvider.Get.StageIndex, _score);
         _sceneLoader.LoadScene(SceneType.MainMenuScene);
     }
 
