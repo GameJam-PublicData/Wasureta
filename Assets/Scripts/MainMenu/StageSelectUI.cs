@@ -1,6 +1,7 @@
 using DG.Tweening;
 using MainSystem.Audio;
 using MainSystem.CoreFlow;
+using MainSystem.Saves;
 using MainSystem.Scene;
 using MainSystem.StageData;
 using TMPro;
@@ -32,16 +33,19 @@ public class StageSelectUI : MonoBehaviour
     IAudioManager _audioManager;
     ISceneLoader _sceneLoader;
     IStageSelectManager _stageSelectManager;
+    ISavesManager _savesManager;
 
     [Inject]
     public void Construct(
         IAudioManager audioManager, 
         ISceneLoader sceneLoader,
-        IStageSelectManager stageSelectManager)
+        IStageSelectManager stageSelectManager,
+        ISavesManager savesManager)
     {
         _audioManager = audioManager;
         _sceneLoader = sceneLoader;
         _stageSelectManager = stageSelectManager;
+        _savesManager = savesManager;
     }
     
     
