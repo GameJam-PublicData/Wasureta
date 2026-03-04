@@ -32,7 +32,7 @@ public class BGMStart : MonoBehaviour
         else
         {
             //ステージシーンのBGM再生
-            _audioManager.PlayBGM(_stageSO.StageBGMName, _stageSO.StagebgmFadeInTime);
+            _audioManager.PlayBGM(_stageSO.StageBGMName, _stageSO.StageBgmFadeInTime);
         }
     }
 }
