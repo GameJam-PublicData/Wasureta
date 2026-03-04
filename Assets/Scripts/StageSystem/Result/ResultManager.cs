@@ -74,7 +74,7 @@ public class ResultManager : MonoBehaviour, IResultManager
         // 9999点満点でスコアを計算
         int finalScore = CalculateScore(score, clearTime, timeLimit);
         
-        stageTimeText.text = $"Time : {clearTime:F2}秒";
+        stageTimeText.text = $"Time : {clearTime:F2}";
         scoreText.text = $"スコア : {finalScore}";
         getItemsText.text =$"持ち物 :{lostIt.Count}/{stageSO.ItemSO.LostItemList.Count}";
         
