@@ -42,7 +42,7 @@ public class ItemManager : IItemManager
     public Action<List<IItem>> OnGetItems { get; set; } = _ => { };
 
 
-    /*
+
     public (List<IItem> lostItems, List<IItem> otherItems) GetItems()
     {
         List<IItem> lostItems = new();
@@ -61,9 +61,10 @@ public class ItemManager : IItemManager
         }
         return (lostItems, otherItems);
     }
-    */
-    
+
+
     //TODO:上は元の、下は新しいの
+    /*
     public (List<IItem> lostItems, List<IItem> otherItems) GetItems()
     {
         List<IItem> lostItems = new();
@@ -72,7 +73,7 @@ public class ItemManager : IItemManager
         foreach (Item item in _itemList)
         {
             bool isLostItem = false;
-            
+
             foreach (Item itemSOItem in _itemSO.LostIItemList)
             {
                 if (item.ItemName == itemSOItem.ItemName)
@@ -81,7 +82,7 @@ public class ItemManager : IItemManager
                     isLostItem = true;
                 }
             }
-            
+
             if(isLostItem == false)
             {
                 otherItems.Add(item);
@@ -89,6 +90,7 @@ public class ItemManager : IItemManager
         }
         return (lostItems, otherItems);
     }
+    */
 
     public bool IsClear()
     {
