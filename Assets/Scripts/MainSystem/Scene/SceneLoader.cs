@@ -13,7 +13,8 @@ public enum SceneType
 {
     BootScene,
     MainMenuScene,
-    StageScene1,// またはStageNScene
+    StageScene,// またはStageNScene
+    DialogScene,
     // 追加のシーンタイプをここに定義
 }
 
