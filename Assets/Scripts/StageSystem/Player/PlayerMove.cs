@@ -1,5 +1,6 @@
 using System;
 using InputSystemActions;
+using MainSystem.CoreFlow;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,7 +11,7 @@ public class PlayerMove : MonoBehaviour
     InputActions _inputActions;
     
     InputAction _moveAction;
-    InputAction _lookAciton;
+    InputAction _lookAction;
     GameObject _playerCamera;
     
     [SerializeField] float speed = 10f;
@@ -25,7 +26,7 @@ public class PlayerMove : MonoBehaviour
         _inputActions = new InputActions();
         _inputActions.Player.Enable();
         _moveAction = _inputActions.Player.Move;
-        _lookAciton = _inputActions.Player.Look;
+        _lookAction = _inputActions.Player.Look;
         Debug.Log("完了");
     }
 
@@ -40,6 +41,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(StageFlow.IsGameEnd) return;//ゲームが一時停止している場合は処理を行わない
         //移動
         //値を受け取る
         Vector3 moveValue = _moveAction.ReadValue<Vector2>();
@@ -52,8 +54,9 @@ public class PlayerMove : MonoBehaviour
     
     void Update()
     {
+        if(StageFlow.IsGameEnd) return;//ゲームが一時停止している場合は処理を行わない
         // 視点移動（Delta値を使用）
-        Vector2 mouseDelta = _lookAciton.ReadValue<Vector2>();
+        Vector2 mouseDelta = _lookAction.ReadValue<Vector2>();
     
         //縦回転
         _playerCamera.transform.Rotate(-mouseDelta.y * lookSpeed, 0, 0, Space.Self);
