@@ -60,7 +60,7 @@ public class ResultManager : MonoBehaviour, IResultManager
         scoreText.text = $"スコア : {score}";
         getItemsText.text =$"持ち物 :{lostIt.Count}/{stageSO.ItemSO.LostItemList.Count}";
         
-        SetStarts();
+        SetStarts(score);
 
         /*
          //todo 獲得アイテムの表示処理
@@ -71,10 +71,8 @@ public class ResultManager : MonoBehaviour, IResultManager
         }*/
     }
 
-    void SetStarts()
+    void SetStarts(int starCount)
     {
-        //todo 星の数の計算処理
-        int starCount = 2;
         for (int i = 0; i< starCount; i++)
         {
             resultStars[i].SetActive(true);
