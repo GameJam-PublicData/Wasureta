@@ -11,7 +11,7 @@ public class OpenDrawerAnimation : MonoBehaviour, IInteractive
     
     public void Interact()
     {
-        transform.DOMove(new Vector3(xDistance, 0 ,zDistance ), openTime);
+        transform.DOLocalMove(new Vector3(xDistance, 0 ,zDistance ), openTime);
     }
 }
 }

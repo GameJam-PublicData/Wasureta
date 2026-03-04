@@ -42,6 +42,7 @@ public class ItemManager : IItemManager
     public Action<List<IItem>> OnGetItems { get; set; } = _ => { };
 
 
+    /*
     public (List<IItem> lostItems, List<IItem> otherItems) GetItems()
     {
         List<IItem> lostItems = new();
@@ -54,6 +55,34 @@ public class ItemManager : IItemManager
                 if(!lostItems.Contains(item)) lostItems.Add(item);
             }
             else
+            {
+                otherItems.Add(item);
+            }
+        }
+        return (lostItems, otherItems);
+    }
+    */
+    
+    //TODO:上は元の、下は新しいの
+    public (List<IItem> lostItems, List<IItem> otherItems) GetItems()
+    {
+        List<IItem> lostItems = new();
+        List<IItem> otherItems = new();
+
+        foreach (Item item in _itemList)
+        {
+            bool isLostItem = false;
+            
+            foreach (Item itemSOItem in _itemSO.LostIItemList)
+            {
+                if (item.ItemName == itemSOItem.ItemName)
+                {
+                    if(!lostItems.Contains(item)) lostItems.Add(item);
+                    isLostItem = true;
+                }
+            }
+            
+            if(isLostItem == false)
             {
                 otherItems.Add(item);
             }

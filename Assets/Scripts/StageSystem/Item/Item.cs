@@ -9,6 +9,10 @@ public interface IItem
 }
 public class Item : MonoBehaviour,IItem
 {
+    //TODO 一旦名前
+    [SerializeField] string itemName;
+    public string ItemName => itemName;
+    
     void Reset()
     {
         gameObject.layer = LayerMask.NameToLayer("Item");

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010f0f4ecd1f40acabf4cca61b8bf050, type: 3}
   m_Name: Stage1SO
   m_EditorClassIdentifier: Assembly-CSharp::MainSystem.StageData.StageSO
-  title: "\u308F\u304F\u308F\u304F\u30D4\u30AF\u30CB\u30C3\u30AF"
+  title: "\u30D4\u30AF\u30CB\u30C3\u30AF"
+  StageIndex: 0
   stageTimeLimit: 90
   itemSO: {fileID: 11400000, guid: 2622eee32edf446f3a47a01fb18ca4a4, type: 2}
   dialogSO: {fileID: 11400000, guid: 6bbbae2f884fd4122bb36b2397d6f3ea, type: 2}

@@ -22,6 +22,7 @@ public class ItemSO : ScriptableObject
         for (int i = 0; i < itemRootPrefab.transform.childCount; i++)
         {
             var child = itemRootPrefab.transform.GetChild(i).gameObject;
+            Debug.Log(child.name);
             var itemComponent = child.GetComponent<Item>();
             if (itemComponent == null)
             {
