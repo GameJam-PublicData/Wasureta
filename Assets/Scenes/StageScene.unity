@@ -889,6 +889,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3656531332531597189, guid: 151a255cc15094498818d1e5158be0db, type: 3}
   m_PrefabInstance: {fileID: 987376147}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &987376149 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7301239005945697039, guid: 151a255cc15094498818d1e5158be0db, type: 3}
+  m_PrefabInstance: {fileID: 987376147}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!224 &987376150 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4568233460664595740, guid: 151a255cc15094498818d1e5158be0db, type: 3}
+  m_PrefabInstance: {fileID: 987376147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1067820521 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4149784736386568468, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
@@ -1613,7 +1629,7 @@ PrefabInstance:
     - target: {fileID: 1085920544600433660, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: itemNameUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 987376150}
     - target: {fileID: 1085920544600433660, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: hoverObject
       value: 
@@ -1621,7 +1637,7 @@ PrefabInstance:
     - target: {fileID: 1085920544600433660, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: itemNameText
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 987376149}
     - target: {fileID: 3924142911358452837, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: speed
       value: 5
@@ -1640,7 +1656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6686537635202414458, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.72
+      value: -12.5
       objectReference: {fileID: 0}
     - target: {fileID: 6686537635202414458, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1648,7 +1664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6686537635202414458, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.94
+      value: -6.2
       objectReference: {fileID: 0}
     - target: {fileID: 6686537635202414458, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: m_LocalRotation.w
