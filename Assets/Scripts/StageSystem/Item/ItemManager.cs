@@ -35,6 +35,7 @@ public class ItemManager : IItemManager
         }
 
         _itemList.Add(item);
+        item.GotItem();
         OnGetItems.Invoke(_itemList);
     }
 

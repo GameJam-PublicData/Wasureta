@@ -1,10 +1,14 @@
 using System;
 using System.Collections.Generic;
+using InputSystemActions;
+using MainSystem.Scene;
 using MainSystem.StageData;
 using StageSystem.Item;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using VContainer;
 
 namespace StageSystem.Result
 {
@@ -31,7 +35,7 @@ public class ResultManager : MonoBehaviour, IResultManager
     [SerializeField] GameObject failedImage;
     //[SerializeField] Transform getItemsParent;
     //[SerializeField] GameObject getItemPrefab;
-    
+    [Inject] ISceneLoader _sceneLoader;
 
     public void SetResult(
         bool isClear,
@@ -69,6 +73,11 @@ public class ResultManager : MonoBehaviour, IResultManager
             GameObject itemObj = Instantiate(getItemPrefab, getItemsParent);
             itemObj.GetComponent<ItemViewer>().SetItem(item);
         }*/
+        
+        _inputActions = new InputActions();
+        
+        _inputActions.UI.Enable();
+        _inputActions.UI.Submit.started += GoNext;
     }
 
     void SetStarts(int starCount)
@@ -77,6 +86,21 @@ public class ResultManager : MonoBehaviour, IResultManager
         {
             resultStars[i].SetActive(true);
         }
+    }
+
+    InputActions _inputActions;
+
+    void GoNext(InputAction.CallbackContext ctx)
+    {
+        Debug.Log("次の画面へ");
+        _sceneLoader.LoadScene(SceneType.MainMenuScene);
+    }
+
+    void OnDisable()
+    {
+        if(_inputActions == null) return;
+        _inputActions.UI.Submit.started -= GoNext;
+        _inputActions.Disable();
     }
 }
 }
