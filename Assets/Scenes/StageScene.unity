@@ -858,6 +858,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 151a255cc15094498818d1e5158be0db, type: 3}
+--- !u!1 &987376148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3656531332531597189, guid: 151a255cc15094498818d1e5158be0db, type: 3}
+  m_PrefabInstance: {fileID: 987376147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &987376149 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7301239005945697039, guid: 151a255cc15094498818d1e5158be0db, type: 3}
@@ -1448,6 +1453,10 @@ PrefabInstance:
       propertyPath: itemNameUI
       value: 
       objectReference: {fileID: 1183348439}
+    - target: {fileID: 1085920544600433660, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
+      propertyPath: hoverObject
+      value: 
+      objectReference: {fileID: 987376148}
     - target: {fileID: 1085920544600433660, guid: b79eba2f61e4c4aff938777b60543400, type: 3}
       propertyPath: itemNameText
       value: 
