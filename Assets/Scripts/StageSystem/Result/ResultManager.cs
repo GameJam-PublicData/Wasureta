@@ -86,12 +86,11 @@ public class ResultManager : MonoBehaviour, IResultManager
         _audioManager.StopBGM(); // 現在のBGMを即停止
         if (isClear)
         {
-            _audioManager.PlayJingle(clearJingleName);
+            //_audioManager.PlayJingle(clearJingleName);
             _audioManager.PlayBGM(stageSO.DialogBGMName);
         }
         else
         {
-            _audioManager.PlayJingle(failedJingleName);
             _audioManager.PlayBGM("Failed");
         }
         

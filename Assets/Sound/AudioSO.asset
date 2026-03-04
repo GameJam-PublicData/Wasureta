@@ -15,6 +15,7 @@ MonoBehaviour:
   _seSounds:
   - {fileID: 11400000, guid: f7bb5da38eedf434ba180b10a724eb23, type: 2}
   - {fileID: 11400000, guid: 453f22314e8384d3296ca0ed960c120d, type: 2}
+  - {fileID: 11400000, guid: 3f36a59d00735443cb9ae373482c670f, type: 2}
   _bgmSounds:
   - {fileID: 11400000, guid: 4b8e9660f41bf47279062103df37aa0b, type: 2}
   - {fileID: 11400000, guid: e09775985fa2c4b259f2e230fc2f055e, type: 2}

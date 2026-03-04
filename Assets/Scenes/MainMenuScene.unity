@@ -2072,6 +2072,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1245f5979968e40e2b57544c0ecb0cce, type: 2}
   - {fileID: 11400000, guid: 2d066fda8bb014c298040b7a48a0a6e7, type: 2}
   - {fileID: 11400000, guid: 0cd2c8498ae004d6e8843e6ea1fdd7b8, type: 2}
+  characterImages:
+  - {fileID: 390478526}
+  - {fileID: 12375610}
+  - {fileID: 785483370}
   stageStars:
   - {fileID: 1650047264}
   - {fileID: 344842830}
