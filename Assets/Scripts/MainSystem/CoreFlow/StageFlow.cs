@@ -14,7 +14,7 @@ namespace MainSystem.CoreFlow
 public interface IStageFlow
 {
     void StartStage();
-    void EndStage();
+    void EndStage(bool isTimerEnd = false);
 }
 
 public class StageFlow : IStageFlow ,IDisposable
@@ -48,24 +48,35 @@ public class StageFlow : IStageFlow ,IDisposable
         await UniTask.WhenAll(
             _timeManager.StartTimer(_stageSO.StageTimeLimit,_stageCTS.Token)
         );
-        EndStage();//GameOver  クリアは別の処理
+        EndStage(true);//GameOver  クリアは別の処理
     }
     public static bool IsGameEnd { get;private set; }
     
-    public void EndStage()
+    public void EndStage(bool isTimerEnd = false)
     {
         
         _timeManager.StopTimer();
         //ステージ終了の処理
         Debug.Log("ステージ終了");
         _stageCTS.Cancel();
+
+        var items = _itemManager.GetItems();
         
+        var allLostItemCount = _stageSO.ItemSO.LostIItemList.Count;
+        var lostItemCount = items.lostItems.Count;
+        var otherItemCount = items.otherItems.Count;
+
+        var score = lostItemCount < allLostItemCount ? 1 // 忘れ物を持ち出せなかった
+            : otherItemCount > 0 ? 2                     // 忘れ物と一緒に違うものも持ってきた
+            : 3;                                         // 忘れ物を全て正しく持ち出せた
+
         _resultManager.SetResult(
             _itemManager.IsClear(),   //todo クリア判定
             _stageSO,
             _timeManager.GetElapsedTime(),
-            0,   //todo スコア
-            _itemManager.GetItems().getItems //todo 取得アイテム
+            isTimerEnd ? score : 0,
+            items.otherItems,
+            items.lostItems
         );
         IsGameEnd = true;
     }
