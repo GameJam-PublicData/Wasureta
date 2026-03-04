@@ -62,10 +62,11 @@ MonoBehaviour:
   - {fileID: 8137016671604741833}
   - {fileID: 4623169079302043889}
   - {fileID: 2940765175878654661}
-  clearText: {fileID: 0}
   stageTimeText: {fileID: 689882445712449987}
   scoreText: {fileID: 9093454551368827987}
   getItemsText: {fileID: 8059711340385846848}
+  clearImage: {fileID: 4639297930190269976}
+  failedImage: {fileID: 7434480869593263792}
 --- !u!223 &1343866992751444292
 Canvas:
   m_ObjectHideFlags: 0
@@ -194,7 +195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score:'
+  m_text: "\u30B9\u30B3\u30A2 : 100"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d18528e968e9c433f99fb054aba729e6, type: 2}
   m_sharedMaterial: {fileID: -7630076926906471075, guid: d18528e968e9c433f99fb054aba729e6, type: 2}
