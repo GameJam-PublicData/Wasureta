@@ -20,7 +20,8 @@ public interface IResultManager
         StageSO stageSO,
         double clearTime, 
         int score,
-        List<IItem> getItems);
+        List<IItem> getItems,
+        List<IItem> lostItems);
 }
 
 public class ResultManager : MonoBehaviour, IResultManager
@@ -41,7 +42,8 @@ public class ResultManager : MonoBehaviour, IResultManager
         StageSO stageSO,
         double clearTime,
         int score,
-        List<IItem> getItems)
+        List<IItem> getItems,
+        List<IItem> lostIt)
     {
         //todo 結果画面にステージデータ、クリアタイム、スコアを渡す
         gameObject.SetActive(true);
@@ -60,9 +62,9 @@ public class ResultManager : MonoBehaviour, IResultManager
         
         stageTimeText.text = $"クリア時間 : {clearTime:F2}";
         scoreText.text = $"スコア : {score}";
-        getItemsText.text =$"持ち物 :{getItems.Count}/{stageSO.ItemSO.LostItemList.Count}";
+        getItemsText.text =$"持ち物 :{lostIt.Count}/{stageSO.ItemSO.LostItemList.Count}";
         
-        SetStarts();
+        SetStarts(score);
 
         /*
          //todo 獲得アイテムの表示処理
@@ -78,10 +80,8 @@ public class ResultManager : MonoBehaviour, IResultManager
         _inputActions.UI.Submit.started += GoNext;
     }
 
-    void SetStarts()
+    void SetStarts(int starCount)
     {
-        //todo 星の数の計算処理
-        int starCount = 2;
         for (int i = 0; i< starCount; i++)
         {
             resultStars[i].SetActive(true);
