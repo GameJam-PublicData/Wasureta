@@ -35,6 +35,8 @@ public class StageSelectUI : MonoBehaviour
     IStageSelectManager _stageSelectManager;
     ISavesManager _savesManager;
 
+    [SerializeField] StageStar[] stageStars;
+    
     [Inject]
     public void Construct(
         IAudioManager audioManager, 
@@ -71,6 +73,24 @@ public class StageSelectUI : MonoBehaviour
                 stageNameTexts[i].text = "？？？";
             }
         }*/
+        
+        //スコア
+        var scores = _savesManager.GetStageScores();
+        Debug.Log(scores);
+        foreach (var score in scores)
+        {
+            Debug.Log($"Stage: {score.Item1}, Score: {score.Item2}");
+        }
+        /*for(int i = 0;i < stageSOs.Length; i++)
+        {
+            stageNameTexts[i].text = stageSOs[i].Title;
+            var score = scores.Find(x => x.index == i).score;
+            stageNameTexts[i].text += $"  {score}点";
+        }*/
+
+        stageStars[0].SetStar(0);
+        stageStars[1].SetStar(1);
+        stageStars[2].SetStar(3);
     }
 
     void GameStartButtonClicked()
