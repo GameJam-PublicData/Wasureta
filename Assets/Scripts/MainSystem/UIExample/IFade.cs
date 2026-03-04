@@ -5,5 +5,6 @@ namespace MainSystem.UIExample
 public interface IFade
 {
     UniTask FadeIn(float duration);
+    UniTask FadeOut(float duration);
 }
 }
