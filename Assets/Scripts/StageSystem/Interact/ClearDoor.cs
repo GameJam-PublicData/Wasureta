@@ -14,6 +14,7 @@ public class ClearDoor : MonoBehaviour, IInteractive
     public void Construct(IStageFlow stageFlow)
     {
         //必要な依存関係をここで注入する
+        _stageFlow = stageFlow;
     }
     
     public void Interact()
