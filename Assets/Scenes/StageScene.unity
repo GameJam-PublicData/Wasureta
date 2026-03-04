@@ -429,7 +429,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5428484257820259319, guid: 2f70e390e64bf4bbba41688836bd7e98, type: 3}
   m_PrefabInstance: {fileID: 171020083}
   m_PrefabAsset: {fileID: 0}
-
 --- !u!1 &211320550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1401184196635223848, guid: e208fa3a8ca914049afd0986610d6b54, type: 3}
@@ -2164,8 +2163,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1005609135067052990, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
+      propertyPath: m_Name
+      value: "\u30C9\u30A2(E\u3067\u958B\u3051\u308B)"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1005609135067052990, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526261216525954160, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
+      propertyPath: m_Name
+      value: "\u30C9\u30A2"
       objectReference: {fileID: 0}
     - target: {fileID: 1526261216525954160, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
       propertyPath: m_Layer
@@ -2212,6 +2219,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3979834725643028642, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
+      propertyPath: m_Name
+      value: "\u30C9\u30A2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979834725643028642, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
@@ -2228,6 +2239,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4149784736386568468, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
+      propertyPath: m_Name
+      value: "\u30C9\u30A2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149784736386568468, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
@@ -2242,6 +2257,10 @@ PrefabInstance:
     - target: {fileID: 5286085303700130223, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5494789102057866585, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
+      propertyPath: m_Name
+      value: "\u30C9\u30A2"
       objectReference: {fileID: 0}
     - target: {fileID: 5494789102057866585, guid: edb58db29a37748639e47a8278a26ef5, type: 3}
       propertyPath: m_Layer
