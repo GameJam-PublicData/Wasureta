@@ -22,6 +22,7 @@ public interface IAudioManager
 {
     UniTask PlayBGM(string bgmKey, float fadeTime = 0f);
     void PlaySE(string seKey, float volume = 1f);
+    void PlayJingle(string jingleKey, float volume = 1f);
     void StopBGM(float fadeTime = 0f);
     void SetVolume(AudioCategory category, float volume);
     float GetVolume(AudioCategory category);
@@ -109,6 +110,19 @@ public class AudioManager : MonoBehaviour, IAudioManager
     {
         AudioClip clip = audioSO.SESounds.Find(s => s.SoundName == seKey)?.Clip;
         if (clip == null) return;
+
+        AudioSource source = GetAvailable2DSource();
+        source.PlayOneShot(clip, volume);
+    }
+    
+    public void PlayJingle(string jingleKey, float volume = 1f)
+    {
+        AudioClip clip = audioSO.JingleSounds.Find(s => s.SoundName == jingleKey)?.Clip;
+        if (clip == null)
+        {
+            Debug.LogWarning($"Jingle '{jingleKey}' が見つかりません");
+            return;
+        }
 
         AudioSource source = GetAvailable2DSource();
         source.PlayOneShot(clip, volume);

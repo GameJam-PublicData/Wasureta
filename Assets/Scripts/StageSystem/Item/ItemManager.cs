@@ -42,18 +42,31 @@ public class ItemManager : IItemManager
     public Action<List<IItem>> OnGetItems { get; set; } = _ => { };
 
 
+
+    // ItemManager.cs の GetItems メソッドを以下に置き換え
     public (List<IItem> lostItems, List<IItem> otherItems) GetItems()
     {
         List<IItem> lostItems = new();
         List<IItem> otherItems = new();
-
+    
         foreach (var item in _itemList)
         {
-            if (_itemSO.LostIItemList.Contains(item))
+            bool isLostItem = false;
+    
+            if (item is Item concreteItem)
             {
-                if(!lostItems.Contains(item)) lostItems.Add(item);
+                foreach (var lostItem in _itemSO.LostItemList)
+                {
+                    if (concreteItem.ItemName == lostItem.ItemName)
+                    {
+                        if (!lostItems.Contains(item)) lostItems.Add(item);
+                        isLostItem = true;
+                        break;
+                    }
+                }
             }
-            else
+    
+            if (!isLostItem)
             {
                 otherItems.Add(item);
             }
@@ -61,10 +74,41 @@ public class ItemManager : IItemManager
         return (lostItems, otherItems);
     }
 
-    public bool IsClear()
+
+    //TODO:上は元の、下は新しいの
+    /*
+    public (List<IItem> lostItems, List<IItem> otherItems) GetItems()
     {
-        var (lostItems, _) = GetItems();
-        return lostItems.Count == _itemSO.LostIItemList.Count;
+        List<IItem> lostItems = new();
+        List<IItem> otherItems = new();
+
+        foreach (Item item in _itemList)
+        {
+            bool isLostItem = false;
+
+            foreach (Item itemSOItem in _itemSO.LostIItemList)
+            {
+                if (item.ItemName == itemSOItem.ItemName)
+                {
+                    if(!lostItems.Contains(item)) lostItems.Add(item);
+                    isLostItem = true;
+                }
+            }
+
+            if(isLostItem == false)
+            {
+                otherItems.Add(item);
+            }
+        }
+        return (lostItems, otherItems);
     }
+    */
+
+  // ItemManager.cs の IsClear メソッドを以下に置き換え
+  public bool IsClear()
+  {
+      var (lostItems, _) = GetItems();
+      return lostItems.Count == _itemSO.LostItemList.Count;
+  }
 }
 }

@@ -12680,7 +12680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1d016844692441618f69575cfc36a33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageSystem.Interact.OpenDrawerAnimation
-  openTime: 5
+  openTime: 2
   xDistance: -10
   zDistance: 0
 --- !u!1001 &5410050604771026547

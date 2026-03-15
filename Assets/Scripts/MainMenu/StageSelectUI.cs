@@ -26,6 +26,8 @@ public class StageSelectUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI[] stageNameTexts;
     [SerializeField] StageSO[] stageSOs;
     
+    [SerializeField] Image[] characterImages;
+    
     
 
     bool _isAnimation = false;
@@ -86,6 +88,15 @@ public class StageSelectUI : MonoBehaviour
             else
             {
                 stageStars[i].SetStar(0);
+            }
+            
+            if (scores[i].score == 3)
+            {
+                characterImages[i].sprite = stageSOs[i].ClearCharacterImage;
+            }
+            else
+            {
+                characterImages[i].sprite = stageSOs[i].CharacterImage;
             }
         }
     }

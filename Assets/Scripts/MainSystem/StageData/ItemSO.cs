@@ -11,6 +11,7 @@ public class ItemSO : ScriptableObject
     [SerializeField] GameObject itemRootPrefab;
     [SerializeField,HideInInspector] List<Item> itemList = new();
 
+   // ItemSO.cs の OnValidate メソッドを以下に置き換え
     void OnValidate()
     {
         if (itemRootPrefab == null)
@@ -18,7 +19,9 @@ public class ItemSO : ScriptableObject
             Debug.LogError("アイテムのルートプレハブが設定されていません。");
             return;
         }
-
+    
+        itemList.Clear(); // 毎回リストをクリアして再構築
+    
         for (int i = 0; i < itemRootPrefab.transform.childCount; i++)
         {
             var child = itemRootPrefab.transform.GetChild(i).gameObject;
@@ -28,13 +31,11 @@ public class ItemSO : ScriptableObject
                 Debug.LogError($"子オブジェクト '{child.name}' に Item コンポーネントがアタッチされていません。");
                 continue;
             }
-
-            if (!itemList.Contains(itemComponent))
-            {
-                itemList.Add(itemComponent);
-            }
+    
+            itemList.Add(itemComponent);
         }
-
+    
+        Debug.Log($"ItemSO: アイテムリスト更新完了。合計 {itemList.Count} 個");
     }
 
 
